@@ -1,0 +1,493 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>data science prac | hiakriggg</title>
+<link rel="shortcut icon" href="https://hiakkaoyri1220.com/favicon.ico?v=1696832509776">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://hiakkaoyri1220.com/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="data science prac | hiakriggg - Atom Feed" href="https://hiakkaoyri1220.com/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="Week1
+load package
+use to load package that we need
+pacman::p_load(
+  tidyverse,
+  tidymodels,
+  vip
+)
+
+overview of the ..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hiakkaoyri1220.com">
+  <img class="avatar" src="https://hiakkaoyri1220.com/images/avatar.png?v=1696832509776" alt="">
+  </a>
+  <h1 class="site-title">
+    hiakriggg
+  </h1>
+  <p class="site-description">
+    ak+q upupup
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://hiakkaoyri1220.com/post/bayes" class="menu">
+          node
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              data science prac
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-07-27
+              </span>
+              <span>
+                7 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h1 id="week1">Week1</h1>
+<h3 id="load-package">load package</h3>
+<p>use to load package that we need</p>
+<pre><code>pacman::p_load(
+  tidyverse,
+  tidymodels,
+  vip
+)
+</code></pre>
+<h3 id="overview-of-the-data">overview of the data</h3>
+<pre><code>glimpse(data) 
+</code></pre>
+<h3 id="select-column-we-need">select column we need</h3>
+<pre><code>mpg %&gt;%
+  select(cty, displ, drv)
+</code></pre>
+<p>or</p>
+<pre><code>mpg &lt;- mpg |&gt;
+  select(cty, displ, drv)
+</code></pre>
+<h3 id="convert-between-type">convert between type</h3>
+<p>make drv (char) convert to factor</p>
+<pre><code>mpg &lt;- 
+  mpg |&gt; 
+  mutate(
+    drv = factor(drv)
+  )
+</code></pre>
+<h2 id="eda">EDA</h2>
+<h3 id="overview">overview</h3>
+<pre><code>skim(mpg)
+</code></pre>
+<p>or</p>
+<pre><code>skimr::skim_without_charts(mpg)
+</code></pre>
+<h3 id="different-plot">different plot</h3>
+<p>single variable:</p>
+<pre><code>ggplot(aes(FE))
+</code></pre>
+<p>bivariate variable:</p>
+<pre><code>ggplot(aes(eng_displ,FE))
+</code></pre>
+<p>histogram:<br>
+used to fill color in the column and decribe the outline of column</p>
+<pre><code>geom_histogram(col =,fill =)
+</code></pre>
+<p>Scatter plot:</p>
+<pre><code>geom_point()
+</code></pre>
+<p>box plot:</p>
+<pre><code>geom_boxplot()
+</code></pre>
+<h3 id="split-datasets">split datasets</h3>
+<p>strata will be the column that you want to split</p>
+<pre><code>set.seed(2023)
+mpg_split &lt;- initial_split(mpg, strata = cty)
+mpg_train &lt;- training(mpg_split)
+mpg_test &lt;- testing(mpg_split)
+</code></pre>
+<h3 id="relationship-between-predictors">relationship between predictors:</h3>
+<pre><code>select_if(is.numeric) %&gt;%
+cor()%&gt;%
+corrplot()
+</code></pre>
+<p>cor () refers to corvariance and corrplot will plot their relationships</p>
+<h3 id="preprocessing-with-recipes">preprocessing with recipes</h3>
+<pre><code>car_recipe &lt;-
+recipe(FE ~ ., data = car_train) %&gt;%
+step_poly(eng_displ, degree =2, options = list(raw =TRUE))
+</code></pre>
+<p>recipe function will set the predictor and response variable, the usage will be  <code>recipe(&quot;response&quot;.,&quot;data&quot;)</code><br>
+<code>car_recipe &lt;-car_recipe %&gt;% prep()</code> will be shown we trained and how much data we got<br>
+<code>car_recipe &lt;-car_recipe %&gt;% juice()</code> will show the data</p>
+<h2 id="set-up-model">set up model</h2>
+<p><code>linear_reg()</code> will perform linear regression</p>
+<pre><code>mpg_model &lt;- linear_reg() |&gt; 
+  set_mode(&quot;regression&quot;) |&gt; 
+  set_engine(&quot;lm&quot;)
+</code></pre>
+<h3 id="put-workflow">put workflow</h3>
+<pre><code class="language-mpg_wf">    workflow() |&gt; 
+    add_model(mpg_model) |&gt; 
+    add_recipe(mpg_recipe)
+</code></pre>
+<h3 id="fit-model">fit model</h3>
+<pre><code>mpg_fit &lt;- 
+  mpg_wf |&gt; 
+  fit(mpg_train)
+</code></pre>
+<h3 id="example-model">example model</h3>
+<p>We can get the coefficients for the linear regression using <em>tidy()</em>.</p>
+<pre><code>mpg_fit |&gt; tidy()
+</code></pre>
+<p>We can get model statistics using glance().</p>
+<pre><code>mpg_fit |&gt; glance()
+</code></pre>
+<h3 id="assumption-checking">Assumption checking</h3>
+<pre><code>mpg_lm &lt;- 
+  mpg_fit |&gt; 
+  extract_fit_engine() 
+</code></pre>
+<p>display plot using <code>gglm::gglm(mpg_lm)</code> or <code>plot(mpg_lm)</code></p>
+<h2 id="make-prediction-on-pretrain-model">make prediction on pretrain model</h2>
+<p>create new data using tibble and using predict function to get the result</p>
+<pre><code>new_data &lt;- tibble(
+  displ = 3, 
+  drv = &quot;4&quot;
+)
+predict(mpg_fit, new_data = new_data)
+</code></pre>
+<h3 id="get-prediction-intervals-confidence-interval-by-changing-the-type">get prediction intervals, confidence interval by changing the type</h3>
+<pre><code>predict(mpg_fit, new_data = new_data, type = &quot;pred_int&quot;)
+</code></pre>
+<h2 id="variable-importance-plots-vip">Variable importance plots (VIP)</h2>
+<p>vip() for plot, vi() for table</p>
+<pre><code>mpg_fit |&gt; 
+  extract_fit_parsnip() |&gt; 
+  vip()
+mpg_fit |&gt; 
+  extract_fit_parsnip() |&gt; 
+  vi()
+</code></pre>
+<h3 id="final-fit">final fit</h3>
+<pre><code>last_fit(mpg_fit, mpg_split) |&gt; collect_metrics()
+</code></pre>
+<p>#Week 2<br>
+##lecture</p>
+<h3 id="json-convert">Json convert</h3>
+<p>root folder, and file name</p>
+<pre><code>songs &lt;- jsonlite::fromJSON(
+    here::here('data','eurovision-lyrics.json')
+)
+</code></pre>
+<h3 id="get-all-row-into-tibblenot-using-for-loop">get all row into tibble(not using for loop)</h3>
+<pre><code>songs &lt;-
+songs %&gt;%
+map_df(parse_song, .id =&quot;ID&quot;)
+</code></pre>
+<p>where parse_song is the function that we wriiten to convert the all detail to the tibble</p>
+<h3 id="arrange-thing">arrange thing</h3>
+<p><code>arrange()</code><br>
+from big to small<br>
+<code>arrange(-n)</code></p>
+<h3 id="count-how-many-times-it-appear">count how many times it appear</h3>
+<p><code>count()</code></p>
+<h3 id="select-string-as-key-value-and-see-how-many-time-it-appear">select string as key value and see how many time it appear</h3>
+<p><code>filter(str_detrct(artist,&quot;Jed&quot;))</code></p>
+<h3 id="check-a-range-of-integer">check a range of integer</h3>
+<p><code>range(songs$years)</code></p>
+<h3 id="change-create-column">change / create column</h3>
+<pre><code>songs &lt;- songs %&gt;% mutate(
+    english_lyrics = ifelse(
+        translation ==&quot;English,
+        lyrics, translation
+        )
+    )
+    ```
+it means if translation == english ,we grab the lyrics, else grab the translation
+### view file();
+`view()`
+#Week 3
+### create outcome and predictor
+create status as the outcome and rest is predictor
+`recipe(status ~., data = credit_data)`
+### Center and scale
+</code></pre>
+<p>credit_recipe %&gt;%<br>
+step_center(all_numeric()) %&gt;%<br>
+step_scale(all_numeric())</p>
+<pre><code>### skewness
+![](https://hiakkaoyri1220.com/post-images/1691729614698.png)
+### Missing data
+</code></pre>
+<p>vis_miss(credit_data)<br>
+gg_miss_upset(credit_data)</p>
+<pre><code>### set up modeimpute and meanimpute
+</code></pre>
+<p>credit_recipe %&gt;%<br>
+step_modeimpute(all_numeric()) %&gt;%<br>
+step_meanimpute(all_numeric())</p>
+<pre><code>### set up near zero
+</code></pre>
+<p>credit_recipe %&gt;%<br>
+step_nzv(all_numeric())</p>
+<pre><code>### Collinearity
+</code></pre>
+<p>credit_recipe %&gt;%<br>
+select_if(is.numeric) %&gt;%<br>
+cor(use = &quot;pairwise.complete.obs&quot;) %&gt;%<br>
+corrplot()</p>
+<pre><code>### set up corr
+</code></pre>
+<p>credit_recipe %&gt;%<br>
+step_corr(all_numeric())</p>
+<pre><code>### Dummy
+</code></pre>
+<p>credit_recipe %&gt;%<br>
+step_dummy(all_nominal(), ~status)</p>
+<pre><code>#Week 4
+### recipe usage
+to create a recipe object,we can use `recipe()` function.
+</code></pre>
+<p>mpg_recipe &lt;- recipe(cty ~ displ + drv, data = mpg_train)<br>
+mpg_recipe</p>
+<pre><code>Everything to the left of ~ is a response variable, and everything to the right of ~ is a predictor.
+### Adding steps
+All of the steps for pre-processing can now be added to the recipe object. They all start with `step_`. We are going to look at some of the main pre-processing steps that you might want to use.
+### Quantitative variables
+First we are going to center (remove the sample mean) and scale (divide by the sample standard deviation)
+
+</code></pre>
+<p>mpg_recipe &lt;-<br>
+mpg_recipe |&gt;<br>
+step_center(all_numeric_predictors()) |&gt;<br>
+step_scale(all_numeric_predictors())<br>
+mpg_recipe</p>
+<pre><code>
+So this tells R what we want to do, and also which variables that we want to do it to. But at this stage, it has not done anything.
+
+To get it to do something, we `prep()` the recipe.
+
+`mpg_recipe |&gt; prep()`
+
+Now it has looked at the data - found the numerical predictors and also calculated any numbers it needs. To see inside the process we use `tidy()`
+
+For all the steps use:
+
+`mpg_recipe |&gt; prep() |&gt; tidy()`
+
+For the details of an individual step give the step number
+
+`mpg_recipe |&gt; prep() |&gt; tidy(n = 1)`
+
+###Categorical variables
+Now we are going to convert the categorical variables into the standard design matrix
+
+</code></pre>
+<p>mpg_recipe &lt;-<br>
+mpg_recipe |&gt;<br>
+step_dummy(all_nominal_predictors())<br>
+mpg_recipe</p>
+<pre><code>
+Again, we have a look at the overall recipe:
+
+`mpg_recipe |&gt; prep() |&gt; tidy()`
+
+And the new step:
+
+`mpg_recipe |&gt; prep() |&gt; tidy(n = 3)`
+
+Next, we are going to add an interaction term between drv and displ, to do this is a bit more complicated as after using dummy, the column drv has been replaced by two new columns drv_f and drv_r so rather than typing all the new columns in, we will use a special select function called starts_with. Also note the ~ in this case is creating you a quick function on the fly.
+
+</code></pre>
+<p>mpg_recipe &lt;- mpg_recipe |&gt;<br>
+step_interact(terms = ~starts_with(&quot;drv&quot;):displ)<br>
+mpg_recipe</p>
+<pre><code>
+`mpg_recipe |&gt; prep() |&gt; tidy(n = 4)`
+
+### Adding to workflows
+So we have our recipe, we can add this to our workflow with add_recipe:
+
+</code></pre>
+<p>mpg_wf &lt;- workflow()<br>
+mpg_wf &lt;-<br>
+mpg_wf |&gt;<br>
+add_recipe(mpg_recipe)<br>
+mpg_wf</p>
+<pre><code></code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#week1">Week1</a><br>
+*
+<ul>
+<li><a href="#load-package">load package</a></li>
+<li><a href="#overview-of-the-data">overview of the data</a></li>
+<li><a href="#select-column-we-need">select column we need</a></li>
+<li><a href="#convert-between-type">convert between type</a></li>
+<li><a href="#eda">EDA</a>
+<ul>
+<li><a href="#overview">overview</a></li>
+<li><a href="#different-plot">different plot</a></li>
+<li><a href="#split-datasets">split datasets</a></li>
+<li><a href="#relationship-between-predictors">relationship between predictors:</a></li>
+<li><a href="#preprocessing-with-recipes">preprocessing with recipes</a></li>
+</ul>
+</li>
+<li><a href="#set-up-model">set up model</a>
+<ul>
+<li><a href="#put-workflow">put workflow</a></li>
+<li><a href="#fit-model">fit model</a></li>
+<li><a href="#example-model">example model</a></li>
+<li><a href="#assumption-checking">Assumption checking</a></li>
+</ul>
+</li>
+<li><a href="#make-prediction-on-pretrain-model">make prediction on pretrain model</a>
+<ul>
+<li><a href="#get-prediction-intervals-confidence-interval-by-changing-the-type">get prediction intervals, confidence interval by changing the type</a></li>
+</ul>
+</li>
+<li><a href="#variable-importance-plots-vip">Variable importance plots (VIP)</a>
+<ul>
+<li><a href="#final-fit">final fit</a></li>
+<li><a href="#json-convert">Json convert</a></li>
+<li><a href="#get-all-row-into-tibblenot-using-for-loop">get all row into tibble(not using for loop)</a></li>
+<li><a href="#arrange-thing">arrange thing</a></li>
+<li><a href="#count-how-many-times-it-appear">count how many times it appear</a></li>
+<li><a href="#select-string-as-key-value-and-see-how-many-time-it-appear">select string as key value and see how many time it appear</a></li>
+<li><a href="#check-a-range-of-integer">check a range of integer</a></li>
+<li><a href="#change-create-column">change / create column</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hiakkaoyri1220.com/post/xian-duan-shu-san-lian/">
+              <h3 class="post-title">
+                线段树三连
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://hiakkaoyri1220.com/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
