@@ -1,0 +1,677 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>data science prac | hiakriggg</title>
+<link rel="shortcut icon" href="https://hiakkaoyri1220.com/favicon.ico?v=1718864303971">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://hiakkaoyri1220.com/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="data science prac | hiakriggg - Atom Feed" href="https://hiakkaoyri1220.com/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="Week1
+load package
+use to load package that we need
+pacman::p_load(
+  tidyverse,
+  tidymodels,
+  vip
+)
+
+overview of the ..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hiakkaoyri1220.com">
+  <img class="avatar" src="https://hiakkaoyri1220.com/images/avatar.png?v=1718864303971" alt="">
+  </a>
+  <h1 class="site-title">
+    hiakriggg
+  </h1>
+  <p class="site-description">
+    ak+q upupup
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://hiakkaoyri1220.com/post/bayes" class="menu">
+          node
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              data science prac
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-07-27
+              </span>
+              <span>
+                9 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h1 id="week1">Week1</h1>
+<h3 id="load-package">load package</h3>
+<p>use to load package that we need</p>
+<pre><code>pacman::p_load(
+  tidyverse,
+  tidymodels,
+  vip
+)
+</code></pre>
+<h3 id="overview-of-the-data">overview of the data</h3>
+<pre><code>glimpse(data) 
+</code></pre>
+<h3 id="select-column-we-need">select column we need</h3>
+<pre><code>mpg %&gt;%
+  select(cty, displ, drv)
+</code></pre>
+<p>or</p>
+<pre><code>mpg &lt;- mpg |&gt;
+  select(cty, displ, drv)
+</code></pre>
+<h3 id="do-not-select-that-column">do not select that column</h3>
+<pre><code>mpg &lt;- mpg |&gt;
+  select(-cty)
+</code></pre>
+<h3 id="convert-between-type">convert between type</h3>
+<p>make drv (char) convert to factor</p>
+<pre><code>mpg &lt;- 
+  mpg |&gt; 
+  mutate(
+    drv = factor(drv)
+  )
+</code></pre>
+<p><img src="https://hiakkaoyri1220.com/post-images/1698925214605.png" alt="" loading="lazy"><br>
+if it is character then convert to factor</p>
+<h3 id="convert-to-tibble">convert to tibble</h3>
+<pre><code>cars2010 &lt;- as_tibble(casrs2010)
+</code></pre>
+<h3 id="clean_name">clean_name</h3>
+<pre><code>cars2010 &lt;- clean_names(cars2010)
+</code></pre>
+<p>convert column name to get better overview</p>
+<h3 id="case_when-and-str_detect">case_when and str_detect</h3>
+<pre><code>case_when(
+    str_detect(drive_desc, &quot;Front&quot;) ~ &quot;front&quot;
+    TRUE ~ &quot;4WD&quot;
+)
+</code></pre>
+<p>in drive_desc column, detect str &quot;Front&quot;, if it exist, replace with &quot;front&quot;, anything else will become 4WD</p>
+<h2 id="eda">EDA</h2>
+<h3 id="overview">overview</h3>
+<pre><code>skim(mpg)
+</code></pre>
+<p>or</p>
+<pre><code>skimr::skim_without_charts(mpg)
+</code></pre>
+<h3 id="different-plot">different plot</h3>
+<p>single variable:</p>
+<pre><code>ggplot(aes(FE))
+</code></pre>
+<p>bivariate variable:</p>
+<pre><code>ggplot(aes(eng_displ,FE))
+</code></pre>
+<p>histogram:<br>
+used to fill color in the column and decribe the outline of column</p>
+<pre><code>geom_histogram(col =,fill =)
+</code></pre>
+<p>Scatter plot:</p>
+<pre><code>geom_point()
+</code></pre>
+<p>box plot:</p>
+<pre><code>geom_boxplot()
+</code></pre>
+<p>density plot:<br>
+<img src="https://hiakkaoyri1220.com/post-images/1700007600170.png" alt="" loading="lazy"></p>
+<h3 id="split-datasets">split datasets</h3>
+<p>strata will be the column that you want to split(need to load tidymodels first)<br>
+How does the tidymodels package avoid imbalance?<br>
+use the strata command to ensure that we random sample<br>
+within each level</p>
+<pre><code>set.seed(2023)
+mpg_split &lt;- initial_split(mpg, strata = cty)
+mpg_train &lt;- training(mpg_split)
+mpg_test &lt;- testing(mpg_split)
+</code></pre>
+<h3 id="relationship-between-predictors">relationship between predictors:</h3>
+<p>need to load corrplot package before use</p>
+<pre><code>select_if(is.numeric) %&gt;%
+cor()%&gt;%
+corrplot()
+</code></pre>
+<p>cor () refers to corvariance and corrplot will plot their relationships</p>
+<h3 id="preprocessing-with-recipes">preprocessing with recipes</h3>
+<pre><code>car_recipe &lt;-
+recipe(FE ~ ., data = car_train) %&gt;%
+step_poly(eng_displ, degree =2, options = list(raw =TRUE))
+</code></pre>
+<p>recipe function will set the predictor and response variable, the usage will be  <code>recipe(&quot;response&quot;.,&quot;data&quot;)</code>,<br>
+example: FE ~  .   -&gt; only set FE as response variable and rest are predictors<br>
+<code>car_recipe &lt;-car_recipe %&gt;% prep()</code> will be shown we trained and how much data we got<br>
+<code>car_recipe &lt;-car_recipe %&gt;% juice()</code> will show the data</p>
+<h3 id="apply-recipe-to-train-and-test-data">Apply recipe to train and test data</h3>
+<pre><code>car_train &lt;- car_recipe %&gt;% juice()
+car_test &lt;- car_recipe %&gt;% bake(car_test)
+</code></pre>
+<h3 id="fit-model">fit model</h3>
+<figure data-type="image" tabindex="1"><img src="https://hiakkaoyri1220.com/post-images/1698925763447.png" alt="" loading="lazy"></figure>
+<h3 id="model-fit">Model fit</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1698925834057.png" alt="" loading="lazy"><br>
+rmse can get the square root of the mse of your model</p>
+<h3 id="check-assumption">Check assumption</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1698925923280.png" alt="" loading="lazy"><br>
+first one can check the augment<br>
+second one plot the relationship between fitted and residual<br>
+third one is qq plot</p>
+<h3 id="set-up-model">set up model</h3>
+<p><code>linear_reg()</code> will perform linear regression</p>
+<pre><code>mpg_model &lt;- linear_reg() |&gt; 
+  set_mode(&quot;regression&quot;) |&gt; 
+  set_engine(&quot;lm&quot;)
+</code></pre>
+<p>lm means linear method</p>
+<h3 id="put-workflow">put workflow</h3>
+<pre><code>mpg_wf &lt;- 
+    workflow() |&gt; 
+    add_model(mpg_model) |&gt; 
+    add_recipe(mpg_recipe)
+</code></pre>
+<h3 id="fit-model-2">fit model</h3>
+<pre><code>mpg_fit &lt;- 
+  mpg_wf |&gt; 
+  fit(mpg_train)
+</code></pre>
+<h3 id="example-model">example model</h3>
+<p>We can get the coefficients for the linear regression using <em>tidy()</em>.</p>
+<pre><code>mpg_fit |&gt; tidy()
+or
+tidy(car_lm$fit)%&gt;%
+    arrange(p.value)
+</code></pre>
+<p>to see which coefficients is most significant<br>
+We can get model statistics using glance().</p>
+<pre><code>mpg_fit |&gt; glance()
+</code></pre>
+<p>to get the model statistics</p>
+<h3 id="assumption-checking">Assumption checking</h3>
+<pre><code>mpg_lm &lt;- 
+  mpg_fit |&gt; 
+  extract_fit_engine() 
+</code></pre>
+<p>display plot using <code>gglm::gglm(mpg_lm)</code> or <code>plot(mpg_lm)</code></p>
+<h2 id="make-prediction-on-pretrain-model">make prediction on pretrain model</h2>
+<p>create new data using tibble and using predict function to get the result</p>
+<pre><code>new_data &lt;- tibble(
+  displ = 3, 
+  drv = &quot;4&quot;
+)
+predict(mpg_fit, new_data = new_data)
+</code></pre>
+<h3 id="get-prediction-intervals-confidence-interval-by-changing-the-type">get prediction intervals, confidence interval by changing the type</h3>
+<pre><code>predict(mpg_fit, new_data = new_data, type = &quot;pred_int&quot;)
+</code></pre>
+<h3 id="bake-function">bake function</h3>
+<pre><code>new_data &lt;- bake(car_recipe.new_data = new_data)
+</code></pre>
+<p>it takes a trained recipe and applies its operations to a data set to create a design matrix</p>
+<h2 id="variable-importance-plots-vip">Variable importance plots (VIP)</h2>
+<p>vip() for plot, vi() for table</p>
+<pre><code>mpg_fit |&gt; 
+  extract_fit_parsnip() |&gt; 
+  vip()
+mpg_fit |&gt; 
+  extract_fit_parsnip() |&gt; 
+  vi()
+</code></pre>
+<h3 id="final-fit">final fit</h3>
+<pre><code>last_fit(mpg_fit, mpg_split) |&gt; collect_metrics()
+</code></pre>
+<h3 id="case-when-key-word">Case when key word</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1698925177592.png" alt="" loading="lazy"><br>
+#Week 2<br>
+##lecture</p>
+<h3 id="function-to-achieve-matrix-inverse">function to achieve matrix inverse</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1698985969775.png" alt="" loading="lazy"><br>
+using solve() instead of ^-1</p>
+<h3 id="json-convert">Json convert</h3>
+<p>root folder, and file name</p>
+<pre><code>songs &lt;- jsonlite::fromJSON(
+    here::here('data','eurovision-lyrics.json')
+)
+</code></pre>
+<h3 id="get-all-row-into-tibblenot-using-for-loop">get all row into tibble(not using for loop)</h3>
+<pre><code>songs &lt;-
+songs %&gt;%
+map_df(parse_song, .id =&quot;ID&quot;)
+</code></pre>
+<p>like c++ mapping, genernate unique id and map it with 'parse song'<br>
+where parse_song is the function that we wriiten to convert the all detail to the tibble</p>
+<h3 id="arrange-thing">arrange thing</h3>
+<p>from small to big<br>
+<code>arrange()</code><br>
+from big to small<br>
+<code>arrange(-n)</code></p>
+<h3 id="count-how-many-times-it-appear">count how many times it appear</h3>
+<p><code>count()</code></p>
+<h3 id="select-string-as-key-value-and-see-how-many-time-it-appear">select string as key value and see how many time it appear</h3>
+<p><code>filter(str_detect(artist,&quot;Jed&quot;))</code></p>
+<h3 id="check-a-range-of-integer">check a range of integer</h3>
+<p><code>range(songs$years)</code></p>
+<h3 id="convert-chr-to-number">convert chr to number</h3>
+<pre><code>mutate( year = parse_number(year))
+</code></pre>
+<h3 id="change-create-column">change / create column</h3>
+<pre><code>songs &lt;- songs %&gt;% mutate(
+    english_lyrics = ifelse(
+        translation ==&quot;English,
+        lyrics, translation
+        )
+    )
+</code></pre>
+<p>it means if translation == english ,we grab the lyrics, else grab the translation</p>
+<h3 id="view-file">view file();</h3>
+<p><code>view()</code></p>
+<h3 id="save-data-in-rds-form-and-in-different-date">save data in rds form and in different date</h3>
+<figure data-type="image" tabindex="2"><img src="https://hiakkaoyri1220.com/post-images/1698988600544.png" alt="" loading="lazy"></figure>
+<h3 id="remove-row">Remove row</h3>
+<p>remove last row</p>
+<pre><code>rbc&lt;-head(rbc, -1)
+</code></pre>
+<p>remove first row</p>
+<pre><code>rbc&lt;-head(rbc, 1)
+</code></pre>
+<p>or using filter to get those row that do not satisfy the requirement</p>
+<pre><code>rbc &lt;- 
+  rbc |&gt; 
+  filter(
+    country != 4
+  )
+</code></pre>
+<h1 id="week-3">Week 3</h1>
+<h3 id="create-outcome-and-predictor">create outcome and predictor</h3>
+<p>create status as the outcome and rest is predictor<br>
+<code>recipe(status ~., data = credit_data)</code></p>
+<h3 id="center-and-scale">Center and scale</h3>
+<pre><code>credit_recipe %&gt;%
+step_center(all_numeric()) %&gt;%
+step_scale(all_numeric())
+</code></pre>
+<h3 id="skewness">skewness</h3>
+<figure data-type="image" tabindex="3"><img src="https://hiakkaoyri1220.com/post-images/1691729614698.png" alt="" loading="lazy"></figure>
+<h3 id="boxcox">BoxCox</h3>
+<pre><code>step_BoxCox(X2) 
+</code></pre>
+<h3 id="missing-data">Missing data</h3>
+<pre><code>vis_miss(credit_data)
+gg_miss_upset(credit_data)
+</code></pre>
+<h3 id="set-up-modeimpute-and-meanimpute">set up modeimpute and meanimpute</h3>
+<pre><code>credit_recipe %&gt;%
+step_modeimpute(all_nominal()) %&gt;%
+step_meanimpute(all_numeric())
+</code></pre>
+<h3 id="set-up-near-zero">set up near zero</h3>
+<pre><code>credit_recipe %&gt;%
+step_nzv(all_numeric())
+</code></pre>
+<h3 id="collinearity">Collinearity</h3>
+<pre><code>credit_recipe %&gt;%
+select_if(is.numeric) %&gt;%
+cor(use = &quot;pairwise.complete.obs&quot;) %&gt;%
+corrplot()
+</code></pre>
+<h3 id="set-up-corr">set up corr</h3>
+<pre><code>credit_recipe %&gt;%
+step_corr(all_numeric())
+</code></pre>
+<h3 id="dummy">Dummy</h3>
+<pre><code>credit_recipe %&gt;%
+step_dummy(all_nominal(), ~status)
+</code></pre>
+<h3 id="orthogonal-ploynomials">Orthogonal ploynomials</h3>
+<pre><code>step_poly(X1)
+</code></pre>
+<h3 id="normal-ploynomials">normal ploynomials</h3>
+<pre><code>step_poly(X1, options = list(raw = TRUE))
+</code></pre>
+<h3 id="basis-spline">basis spline</h3>
+<pre><code>step_bs(age, options = list(knot = c(30,60)))
+</code></pre>
+<p>k=2, will have k+1 = 3 regions, default is cubic</p>
+<h3 id="natural-spline">natural spline</h3>
+<pre><code>step_ns(age, deg_free =3)
+</code></pre>
+<p>will convert to 3 column<br>
+total 4 column will have for data-frame</p>
+<h3 id="normalize">normalize</h3>
+<pre><code>step_normalize(all_predictors())
+</code></pre>
+<h3 id="cut-point-quantitative-to-categorical">Cut point (quantitative to categorical)</h3>
+<pre><code>step_cut(age,breaks = c(0,30,60,90))
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://hiakkaoyri1220.com/post-images/1700006162580.png" alt="" loading="lazy"></figure>
+<h3 id="create-interact-term">create interact term</h3>
+<pre><code>step_interact(terms = ~X1_poly_1:starts_with(&quot;C1&quot;))|&gt;
+</code></pre>
+<h3 id="normalize-numeric-data-to-have-a-standard-deviation-of-one">normalize numeric data to have a standard deviation of one.</h3>
+<p>divide by the sample standard deviation</p>
+<pre><code>step_scale()
+</code></pre>
+<h3 id="remove-observation-contain-na-or-nan">remove observation contain NA or NaN</h3>
+<pre><code>step_naomit(salary)
+</code></pre>
+<p>creates a specification of a recipe step that will remove observations (rows of data) if they contain NA or NaN values</p>
+<h3 id="set-few-row-to-other">Set few row to other</h3>
+<p>levels with only a few rows are called other</p>
+<pre><code>step_other(name, category, threshold = 0.01)
+</code></pre>
+<h3 id="makes-the-names-nicer-like-janitorclean_names">makes the names nicer like janitor::clean_names()</h3>
+<pre><code>step_clean_levels(name, category)
+</code></pre>
+<p>#Week 4</p>
+<h3 id="lda">LDA</h3>
+<pre><code>discrim_linear() %&gt;% set_engine(&quot;MASS&quot;)
+![](https://hiakkaoyri1220.com/post-images/1699012944679.png)
+</code></pre>
+<p>to perform LDA</p>
+<h3 id="qda">QDA</h3>
+<figure data-type="image" tabindex="5"><img src="https://hiakkaoyri1220.com/post-images/1699013209327.png" alt="" loading="lazy"></figure>
+<h3 id="naive_bayes">Naive_Bayes()</h3>
+<pre><code>naive_Bayes() %&gt;%
+set_engine(&quot;naivebayes&quot;)
+</code></pre>
+<p>notice something we has probability equal to 0</p>
+<pre><code>naive_Bayes(Laplace =1) %&gt;%
+set_engine(&quot;naivebayes&quot;)
+</code></pre>
+<p>can get rid of 0</p>
+<h3 id="cv">CV</h3>
+<pre><code>vfold_cv(auto, v = 5, strata = mpg)
+</code></pre>
+<p>v = 5 means how many folders you want ( default is 10)<br>
+strata	 is the  variable in data (single character or name) used to conduct stratified sampling. When not NULL, each resample is created within the stratification variable. Numeric strata are binned into quartiles</p>
+<h3 id="perform-cv">Perform cv</h3>
+<pre><code>auto_wf &lt;- workflow()%&gt;%
+    add_recipe(auto_recipe)%&gt;%
+    add_model(auto_model)
+
+auto_rsamples &lt;- fit_resamples(
+    auto_wf,
+    resamples = auto_cv
+)
+</code></pre>
+<h3 id="get-results">Get results</h3>
+<pre><code>auto_rsamples %&gt;% collect_metrics()
+</code></pre>
+<h3 id="bootstraps">bootstraps</h3>
+<figure data-type="image" tabindex="6"><img src="https://hiakkaoyri1220.com/post-images/1699015453088.png" alt="" loading="lazy"></figure>
+<h3 id="set-workflow">Set workflow</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1699015923794.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1699016002542.png" alt="" loading="lazy"></p>
+<h3 id="get-metrics">get metrics</h3>
+<pre><code>titanic_fits %&gt;%collect_metrics()
+</code></pre>
+<h3 id="get-roc-curves">get roc curves</h3>
+<figure data-type="image" tabindex="7"><img src="https://hiakkaoyri1220.com/post-images/1699016038816.png" alt="" loading="lazy"></figure>
+<h3 id="auc-compare-to-test">AUC compare to test</h3>
+<figure data-type="image" tabindex="8"><img src="https://hiakkaoyri1220.com/post-images/1699016080673.png" alt="" loading="lazy"></figure>
+<h1 id="week-5">Week 5</h1>
+<figure data-type="image" tabindex="9"><img src="https://hiakkaoyri1220.com/post-images/1692705953251.png" alt="" loading="lazy"></figure>
+<h2 id="bic-and-aic-is-smaller-then-it-is-better">BIC and AIC is smaller then it is better</h2>
+<h3 id="ridge">Ridge</h3>
+<p>linear_reg(mode = &quot;regression&quot;,mixture =0)%&gt;%<br>
+set_engine(&quot;glmnet)</p>
+<h3 id="lasso">Lasso</h3>
+<p>linear_reg(mode = &quot;regression&quot;,mixture =1)%&gt;%<br>
+set_engine(&quot;glmnet)</p>
+<h3 id="set-id-columns-to-avoid-remove-it">Set ID columns to avoid remove it</h3>
+<pre><code>office_recipe %&gt;%
+update_role(season,episode,new_role =&quot;ID)
+</code></pre>
+<h3 id="frequence-count">frequence count</h3>
+<pre><code>fct_lump_n(character,20)
+</code></pre>
+<p>display the character appear time that is top 20 as individual, other classifily as the same thing<br>
+<img src="https://hiakkaoyri1220.com/post-images/1700002011367.png" alt="" loading="lazy"></p>
+<h3 id="convert-to-detail-form">convert to detail form</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1700002095976.png" alt="" loading="lazy"><br>
+take the character column, and count how many time appear in n_lines, if not appear, set it to 0<br>
+<img src="https://hiakkaoyri1220.com/post-images/1700002111892.png" alt="" loading="lazy"></p>
+<h3 id="smooth-spline">smooth spline</h3>
+<figure data-type="image" tabindex="10"><img src="https://hiakkaoyri1220.com/post-images/1700007150788.png" alt="" loading="lazy"></figure>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#week1">Week1</a><br>
+*
+<ul>
+<li><a href="#load-package">load package</a></li>
+<li><a href="#overview-of-the-data">overview of the data</a></li>
+<li><a href="#select-column-we-need">select column we need</a></li>
+<li><a href="#do-not-select-that-column">do not select that column</a></li>
+<li><a href="#convert-between-type">convert between type</a></li>
+<li><a href="#convert-to-tibble">convert to tibble</a></li>
+<li><a href="#clean_name">clean_name</a></li>
+<li><a href="#case_when-and-str_detect">case_when and str_detect</a></li>
+<li><a href="#eda">EDA</a>
+<ul>
+<li><a href="#overview">overview</a></li>
+<li><a href="#different-plot">different plot</a></li>
+<li><a href="#split-datasets">split datasets</a></li>
+<li><a href="#relationship-between-predictors">relationship between predictors:</a></li>
+<li><a href="#preprocessing-with-recipes">preprocessing with recipes</a></li>
+<li><a href="#apply-recipe-to-train-and-test-data">Apply recipe to train and test data</a></li>
+<li><a href="#fit-model">fit model</a></li>
+<li><a href="#model-fit">Model fit</a></li>
+<li><a href="#check-assumption">Check assumption</a></li>
+<li><a href="#set-up-model">set up model</a></li>
+<li><a href="#put-workflow">put workflow</a></li>
+<li><a href="#fit-model-2">fit model</a></li>
+<li><a href="#example-model">example model</a></li>
+<li><a href="#assumption-checking">Assumption checking</a></li>
+</ul>
+</li>
+<li><a href="#make-prediction-on-pretrain-model">make prediction on pretrain model</a>
+<ul>
+<li><a href="#get-prediction-intervals-confidence-interval-by-changing-the-type">get prediction intervals, confidence interval by changing the type</a></li>
+<li><a href="#bake-function">bake function</a></li>
+</ul>
+</li>
+<li><a href="#variable-importance-plots-vip">Variable importance plots (VIP)</a>
+<ul>
+<li><a href="#final-fit">final fit</a></li>
+<li><a href="#case-when-key-word">Case when key word</a></li>
+<li><a href="#function-to-achieve-matrix-inverse">function to achieve matrix inverse</a></li>
+<li><a href="#json-convert">Json convert</a></li>
+<li><a href="#get-all-row-into-tibblenot-using-for-loop">get all row into tibble(not using for loop)</a></li>
+<li><a href="#arrange-thing">arrange thing</a></li>
+<li><a href="#count-how-many-times-it-appear">count how many times it appear</a></li>
+<li><a href="#select-string-as-key-value-and-see-how-many-time-it-appear">select string as key value and see how many time it appear</a></li>
+<li><a href="#check-a-range-of-integer">check a range of integer</a></li>
+<li><a href="#convert-chr-to-number">convert chr to number</a></li>
+<li><a href="#change-create-column">change / create column</a></li>
+<li><a href="#view-file">view file();</a></li>
+<li><a href="#save-data-in-rds-form-and-in-different-date">save data in rds form and in different date</a></li>
+<li><a href="#remove-row">Remove row</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#week-3">Week 3</a><br>
+*
+<ul>
+<li><a href="#create-outcome-and-predictor">create outcome and predictor</a></li>
+<li><a href="#center-and-scale">Center and scale</a></li>
+<li><a href="#skewness">skewness</a></li>
+<li><a href="#boxcox">BoxCox</a></li>
+<li><a href="#missing-data">Missing data</a></li>
+<li><a href="#set-up-modeimpute-and-meanimpute">set up modeimpute and meanimpute</a></li>
+<li><a href="#set-up-near-zero">set up near zero</a></li>
+<li><a href="#collinearity">Collinearity</a></li>
+<li><a href="#set-up-corr">set up corr</a></li>
+<li><a href="#dummy">Dummy</a></li>
+<li><a href="#orthogonal-ploynomials">Orthogonal ploynomials</a></li>
+<li><a href="#normal-ploynomials">normal ploynomials</a></li>
+<li><a href="#basis-spline">basis spline</a></li>
+<li><a href="#natural-spline">natural spline</a></li>
+<li><a href="#normalize">normalize</a></li>
+<li><a href="#cut-point-quantitative-to-categorical">Cut point (quantitative to categorical)</a></li>
+<li><a href="#create-interact-term">create interact term</a></li>
+<li><a href="#normalize-numeric-data-to-have-a-standard-deviation-of-one">normalize numeric data to have a standard deviation of one.</a></li>
+<li><a href="#remove-observation-contain-na-or-nan">remove observation contain NA or NaN</a></li>
+<li><a href="#set-few-row-to-other">Set few row to other</a></li>
+<li><a href="#makes-the-names-nicer-like-janitorclean_names">makes the names nicer like janitor::clean_names()</a></li>
+<li><a href="#lda">LDA</a></li>
+<li><a href="#qda">QDA</a></li>
+<li><a href="#naive_bayes">Naive_Bayes()</a></li>
+<li><a href="#cv">CV</a></li>
+<li><a href="#perform-cv">Perform cv</a></li>
+<li><a href="#get-results">Get results</a></li>
+<li><a href="#bootstraps">bootstraps</a></li>
+<li><a href="#set-workflow">Set workflow</a></li>
+<li><a href="#get-metrics">get metrics</a></li>
+<li><a href="#get-roc-curves">get roc curves</a></li>
+<li><a href="#auc-compare-to-test">AUC compare to test</a></li>
+</ul>
+</li>
+<li><a href="#week-5">Week 5</a>
+<ul>
+<li><a href="#bic-and-aic-is-smaller-then-it-is-better">BIC and AIC is smaller then it is better</a>
+<ul>
+<li><a href="#ridge">Ridge</a></li>
+<li><a href="#lasso">Lasso</a></li>
+<li><a href="#set-id-columns-to-avoid-remove-it">Set ID columns to avoid remove it</a></li>
+<li><a href="#frequence-count">frequence count</a></li>
+<li><a href="#convert-to-detail-form">convert to detail form</a></li>
+<li><a href="#smooth-spline">smooth spline</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hiakkaoyri1220.com/post/xian-duan-shu-san-lian/">
+              <h3 class="post-title">
+                线段树三连
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://hiakkaoyri1220.com/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

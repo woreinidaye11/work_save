@@ -1,0 +1,343 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>p1966 火柴排队(树状数组求逆序对+离散化) | hiakriggg</title>
+<link rel="shortcut icon" href="https://hiakkaoyri1220.com/favicon.ico?v=1718864303971">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://hiakkaoyri1220.com/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="p1966 火柴排队(树状数组求逆序对+离散化) | hiakriggg - Atom Feed" href="https://hiakkaoyri1220.com/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="link
+通过观察是数据，我们发现 1&lt;=n&lt;=10^5, 0≤ 火柴高度 &lt; 2^31, 发现需要进行离散化才能满足空间需求. 通过观察样例,我们可以发现如果想让结果最优,我们需要把大的和大的放在一起,小的和小的放在一起..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hiakkaoyri1220.com">
+  <img class="avatar" src="https://hiakkaoyri1220.com/images/avatar.png?v=1718864303971" alt="">
+  </a>
+  <h1 class="site-title">
+    hiakriggg
+  </h1>
+  <p class="site-description">
+    ak+q upupup
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://hiakkaoyri1220.com/post/bayes" class="menu">
+          node
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              p1966 火柴排队(树状数组求逆序对+离散化)
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-01-24
+              </span>
+              <span>
+                7 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p><a href="https://www.luogu.com.cn/problem/P1966">link</a></p>
+<p>通过观察是数据，我们发现 1&lt;=n&lt;=10^5, 0≤ 火柴高度 &lt; 2^31, 发现需要进行离散化才能满足空间需求. 通过观察样例,我们可以发现如果想让结果最优,我们需要把大的和大的放在一起,小的和小的放在一起,同样的数字一定要放在一起,这启发了我们可以考虑数组中元素的相对大小关系. 通过构造样例,进一步发现在两个数组中,相对大小关系相同的元素组成一对一定是最优解</p>
+<h3 id="证明">证明:</h3>
+<p>通过题目要求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∑</mo><mrow></mrow><mrow></mrow></msubsup><mo>(</mo><msub><mi>a</mi><mi>i</mi></msub><mo>−</mo><msub><mi>b</mi><mi>i</mi></msub><msup><mo>)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\sum_{}^{} (a_{i} - b_{i})^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0497100000000001em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.5029em;"><span style="top:-1.7002899999999999em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"></span></span></span><span style="top:-2.5029em;margin-right:0.05em;"><span class="pstrut" style="height:2em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>最小,等于让<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∑</mo><mrow></mrow><mrow></mrow></msubsup><mo>(</mo><mn>2</mn><msub><mi>a</mi><mi>i</mi></msub><msub><mi>b</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">\sum_{}^{} (2a_{i}b_{i})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0497100000000001em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.5029em;"><span style="top:-1.7002899999999999em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"></span></span></span><span style="top:-2.5029em;margin-right:0.05em;"><span class="pstrut" style="height:2em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">2</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>最大,通过排序不等式可以证明.</p>
+<p>那么我们可以想到对于两个数组进行相对大小关系的离散化,即把两个原数组按照从大到小的关系进行排序,并记录它们的下标.也就是说,现在对于a数组来讲,存储的是从第一大到第n大的数的下标位置. 对于b数组来讲,存储的是从第一大到第n大的数的下标位置.</p>
+<p>那么我们希望让两个数组的序列顺序相等,那么问题就变成了将转化为b序列要交换几次可以令其等于a序列(以a数组为标准).<br>
+例子:<br>
+1 3 4 2      ,  1 7 2 4<br>
+相对位置离散化后:<br>
+3 2 4 1         2 4 3 1</p>
+<p>乱序序列 c映射之后:<br>
+1 4 2 3</p>
+<p>先来看 c[a[i].num]=a[i].num的：</p>
+<p>1 2 3 ... n;</p>
+<p>那么c[a[i].num]=b[i].num的目标状态就是上面那个，</p>
+<p>c[a[i].num]意味着c数组代表把a里面的所有相对大小的元素映射成 1-n，<br>
+c[a[i].num]=b[i].num意味着c数组代表把b里面的所有相对大小的元素映射成 1-n，<br>
+因为1到n是代表a里面的所有相对大小的元素，所以如果不一样，则代表要交换，我们的目标则是让两个序列的相对大小关系的pair一样.</p>
+<p>下面求的时候改成了从右往左遍历，因为排序为它是前面第几大的，但因为我们要根据index来映射1 -n，但我们树状数组的模板为第几大，所以需要从右往左遍历，也就是从n - 1去找后面有多少个比他小，也就是从1 - n去找前面有多少个比他大。<br>
+每次把这个数的位置加入到树状数组中，因为是排完序之后，所以之前加入的一定比后加入的大，然后在查询当前这个数前面位置的数（是前面位置的数，要当前这个数减1，就是逆序对的个数了。</p>
+<pre><code>#include&lt;bits/stdc++.h&gt;
+#define pb push_back
+#define eb emplace_back
+typedef long long ll;
+using namespace std;
+const ll p = 1e8-3;
+int n;
+struct node{
+	int val,num;
+}a[500010],b[500010];
+ll tree[500010],res;
+int q[500010];
+	bool cmp1(node n1,node n2)
+	{
+		return n1.val &gt; n2.val;
+	}
+	int get(int x){
+		ll ans =0;
+		for(;x;x-=x&amp;-x)ans=(ans+tree[x])%p;
+		return ans;
+	}
+	void add(int x,int k){
+		for(;x&lt;=n;x+=x&amp;-x)tree[x]=(tree[x]+k)%p;
+	}
+	int main(){
+	  ios::sync_with_stdio(false); cin.tie(0);
+	  cin&gt;&gt;n;
+	  for(int i=1;i&lt;=n;++i)
+	  {
+	  	cin&gt;&gt;a[i].val;
+	  	a[i].num =i;
+	  }
+
+	  for(int i=1;i&lt;=n;++i)
+	  {
+	  	cin&gt;&gt;b[i].val;
+	  	b[i].num = i;
+	  }
+	  sort(a+1,a+1+n,cmp1);
+	  sort(b+1,b+1+n,cmp1);
+	  // for(int i=1;i&lt;=n;++i)
+	  // {
+	  // 	d1[i] = a[i].num;
+	  // }
+	  // for(int i=1;i&lt;=n;++i)
+	  // {
+	  // 	d2[i] = b[i].num;
+	  //} 
+	  for(int i=1;i&lt;=n;++i)
+	  {
+	  	//cout&lt;&lt;d1[i] &lt;&lt;&quot; &quot;&lt;&lt;d2[i]&lt;&lt;endl;
+	  	cout&lt;&lt;a[i].num &lt;&lt;&quot; &quot;&lt;&lt;b[i].num&lt;&lt;endl;
+	  } 
+	  for(int i=1;i&lt;=n;i++)
+	  	{
+	  		q[a[i].num]=b[i].num; 
+	  	}
+	  for(int i=1;i&lt;=n;i++)
+	  	{
+	  		cout&lt;&lt;q[i]&lt;&lt;endl; 
+	  	}
+	  	for(int i=n;i;--i)
+	  	{
+	  		add(q[i],1);
+	  		res=(res+get(q[i]-1))%p;
+	  		cout&lt;&lt;res&lt;&lt;endl;
+	  	}
+	  	cout&lt;&lt;res&lt;&lt;endl;
+	return 0;
+}
+// #include&lt;bits/stdc++.h&gt;
+// #define pb push_back
+// #define eb emplace_back
+// typedef long long ll;
+// using namespace std;
+// const ll p = 1e8-3;
+// int n;
+// struct node{
+// 	int val,num;
+// }a[500010],b[500010];
+// ll tree[500010],res;
+// int q[500010];
+// 	bool cmp1(node n1,node n2)
+// 	{
+// 		return n1.val &lt; n2.val;
+// 	}
+// 	int get(int x){
+// 		ll ans =0;
+// 		for(;x;x-=x&amp;-x)ans=(ans+tree[x])%p;
+// 		return ans;
+// 	}
+// 	void add(int x,int k){
+// 		for(;x&lt;=n;x+=x&amp;-x)tree[x]=(tree[x]+k)%p;
+// 	}
+// 	int main(){
+// 	  ios::sync_with_stdio(false); cin.tie(0);
+// 	  cin&gt;&gt;n;
+// 	  for(int i=1;i&lt;=n;++i)
+// 	  {
+// 	  	cin&gt;&gt;a[i].val;
+// 	  	a[i].num =i;
+// 	  }
+
+// 	  for(int i=1;i&lt;=n;++i)
+// 	  {
+// 	  	cin&gt;&gt;b[i].val;
+// 	  	b[i].num = i;
+// 	  }
+// 	  sort(a+1,a+1+n,cmp1);
+// 	  sort(b+1,b+1+n,cmp1);
+// 	  // for(int i=1;i&lt;=n;++i)
+// 	  // {
+// 	  // 	d1[i] = a[i].num;
+// 	  // }
+// 	  // for(int i=1;i&lt;=n;++i)
+// 	  // {
+// 	  // 	d2[i] = b[i].num;
+// 	  //} 
+// 	  // for(int i=1;i&lt;=n;++i)
+// 	  // {
+// 	  // 	//cout&lt;&lt;d1[i] &lt;&lt;&quot; &quot;&lt;&lt;d2[i]&lt;&lt;endl;
+// 	  // 	cout&lt;&lt;a[i].num &lt;&lt;&quot; &quot;&lt;&lt;b[i].num&lt;&lt;endl;
+// 	  // } 
+// 	  for(int i=1;i&lt;=n;i++)
+// 	  	{
+// 	  		q[a[i].num]=b[i].num; 
+// 	  	}
+// 	  // for(int i=1;i&lt;=n;i++)
+// 	  // 	{
+// 	  // 		cout&lt;&lt;q[i]&lt;&lt;endl; 
+// 	  // 	}
+// 	  	for(int i=1;i&lt;=n;++i)
+// 	  	{
+// 	  		add(q[i],1);
+// 	  		res=(res+(i-get(q[i])))%p;
+// 	  		// cout&lt;&lt;res&lt;&lt;endl;
+// 	  	}
+// 	  	cout&lt;&lt;res&lt;&lt;endl;
+// 	return 0;
+// }
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E8%AF%81%E6%98%8E">证明:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hiakkaoyri1220.com/post/p2048-chao-ji-gang-qin-zuo-ti-ji-lu/">
+              <h3 class="post-title">
+                 p2048 超级钢琴 做题记录
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://hiakkaoyri1220.com/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

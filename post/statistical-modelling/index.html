@@ -1,0 +1,1388 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Statistical Modelling  | hiakriggg</title>
+<link rel="shortcut icon" href="https://hiakkaoyri1220.com/favicon.ico?v=1718864303971">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://hiakkaoyri1220.com/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Statistical Modelling  | hiakriggg - Atom Feed" href="https://hiakkaoyri1220.com/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="Week1
+Linear Regression
+Multiple Linear Regression
+
+upper case is random variables, lower case is observe variables
+Rand..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hiakkaoyri1220.com">
+  <img class="avatar" src="https://hiakkaoyri1220.com/images/avatar.png?v=1718864303971" alt="">
+  </a>
+  <h1 class="site-title">
+    hiakriggg
+  </h1>
+  <p class="site-description">
+    ak+q upupup
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://hiakkaoyri1220.com/post/bayes" class="menu">
+          node
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Statistical Modelling 
+            </h2>
+            <div class="post-info">
+              <span>
+                2024-02-29
+              </span>
+              <span>
+                20 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h1 id="week1">Week1</h1>
+<h2 id="linear-regression">Linear Regression</h2>
+<h3 id="multiple-linear-regression">Multiple Linear Regression</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1708840156901.png" alt="" loading="lazy"><br>
+upper case is random variables, lower case is observe variables</p>
+<h3 id="random-vectors">Random vectors</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1708840274447.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1708840522875.png" alt="" loading="lazy"></p>
+<h3 id="random-matrix">Random matrix</h3>
+<figure data-type="image" tabindex="1"><img src="https://hiakkaoyri1220.com/post-images/1708840589458.png" alt="" loading="lazy"></figure>
+<h3 id="linear-transformations">Linear transformations</h3>
+<figure data-type="image" tabindex="2"><img src="https://hiakkaoyri1220.com/post-images/1708840623400.png" alt="" loading="lazy"></figure>
+<h3 id="normal-distribution">Normal distribution</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1709011902523.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1709012061974.png" alt="" loading="lazy"></p>
+<h2 id="mlr">MLR</h2>
+<h3 id="multiple-regression">Multiple regression</h3>
+<ul>
+<li>The regression model is used to model the dependence between a predictor variable <em>x</em> and a response variaable <em><strong>Y</strong></em>.</li>
+<li>In general, there may be several predictor variables <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>⋯</mo><mtext> </mtext><mo separator="true">,</mo><msub><mi>x</mi><mi>r</mi></msub></mrow><annotation encoding="application/x-tex">x_1,x_2, \cdots, x_r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and single response <em><strong>Y</strong></em></li>
+<li>In this case the <em>multiple regression</em> model may be used to model the simultaneous influence of the predictors</li>
+</ul>
+<h3 id="notation">Notation</h3>
+<figure data-type="image" tabindex="3"><img src="https://hiakkaoyri1220.com/post-images/1709012728300.png" alt="" loading="lazy"></figure>
+<h3 id="multiple-regression-model">Multiple regression model</h3>
+<figure data-type="image" tabindex="4"><img src="https://hiakkaoyri1220.com/post-images/1709012800307.png" alt="" loading="lazy"></figure>
+<h3 id="alternative-forms">Alternative forms</h3>
+<figure data-type="image" tabindex="5"><img src="https://hiakkaoyri1220.com/post-images/1709012973540.png" alt="" loading="lazy"></figure>
+<h3 id="matrix-formulation">Matrix formulation</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1709013076784.png" alt="" loading="lazy"><br>
+if it is normality, and two random variable their corvariance is 0,  then it is independent</p>
+<h3 id="linear-independence">Linear Independence</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1709013275522.png" alt="" loading="lazy"><br>
+when <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>v</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>v</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>⋯</mo><mtext> </mtext><mo separator="true">,</mo><msub><mi>v</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">v_1,v_2,\cdots,v_p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> are linearly dependent it means that one of the <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">v_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>'s is expressible as a linear combination of the remaining <em><strong>v</strong></em>'s</p>
+<h3 id="identifiability">Identifiability</h3>
+<p>Consider the multiple regression mode</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mi>X</mi><mi>β</mi><mo>+</mo><mi>e</mi></mrow><annotation encoding="application/x-tex">y= X\beta + e
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">e</span></span></span></span></span></p>
+<p>we require that the columns of <em>X</em> be linearly independent<br>
+<img src="https://hiakkaoyri1220.com/post-images/1718026116157.png" alt="" loading="lazy"></p>
+<h3 id="linear-least-squares">Linear least squares</h3>
+<figure data-type="image" tabindex="6"><img src="https://hiakkaoyri1220.com/post-images/1709013966355.png" alt="" loading="lazy"></figure>
+<h3 id="theorem-11">Theorem 1.1.</h3>
+<p>If the columns of <em>X</em> are linearly independent then the least squares estimates are given uniquely by<br>
+<img src="https://hiakkaoyri1220.com/post-images/1709014352682.png" alt="" loading="lazy"></p>
+<h3 id="fitted-values">Fitted values</h3>
+<figure data-type="image" tabindex="7"><img src="https://hiakkaoyri1220.com/post-images/1709014549411.png" alt="" loading="lazy"></figure>
+<h3 id="alternative-notation">Alternative notation</h3>
+<figure data-type="image" tabindex="8"><img src="https://hiakkaoyri1220.com/post-images/1709014590517.png" alt="" loading="lazy"></figure>
+<h3 id="theorem-12">Theorem 1.2</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1709014755142.png" alt="" loading="lazy"><br>
+proof:<br>
+<img src="https://hiakkaoyri1220.com/post-images/1709095385191.png" alt="" loading="lazy"><br>
+it is an unbias estimator<br>
+<img src="https://hiakkaoyri1220.com/post-images/1709358051874.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1709358661644.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1709358021942.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1709358096943.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1709358122938.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1709358183119.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1709358890566.png" alt="" loading="lazy"></p>
+<h1 id="week2">Week2</h1>
+<h3 id="estimable-functions-and-best-linear-unbiased-estimates">Estimable functions and best linear unbiased estimates</h3>
+<figure data-type="image" tabindex="9"><img src="https://hiakkaoyri1220.com/post-images/1709870837511.png" alt="" loading="lazy"></figure>
+<h3 id="estimable-function">estimable function</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1709870933212.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1709871089027.png" alt="" loading="lazy"></p>
+<h3 id="the-gauss-markov-theorem">The Gauss-Markov Theorem</h3>
+<figure data-type="image" tabindex="10"><img src="https://hiakkaoyri1220.com/post-images/1709871109836.png" alt="" loading="lazy"></figure>
+<h4 id="proof">Proof</h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1709872010655.png" alt="" loading="lazy"><br>
+due to the assumption we have, we know the <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span> is not a zero vector, therefore we can subsitite in and become next step<br>
+<img src="https://hiakkaoyri1220.com/post-images/1709872111366.png" alt="" loading="lazy"><br>
+by times <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msup><mi>X</mi><mi>T</mi></msup><mi>X</mi><msup><mo>)</mo><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">(X^TX)^{-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0913309999999998em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span> on both side to get <strong>P</strong><br>
+<img src="https://hiakkaoyri1220.com/post-images/1709873472542.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1709875379035.png" alt="" loading="lazy"><br>
+as <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>P</mi><mn>2</mn></msup><mo>=</mo><msup><mi>P</mi><mi>T</mi></msup><mo>=</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">P^2 = P^T = P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span></p>
+<h3 id="inference-for-multiple-regression-regression-coefficients">Inference for multiple regression: regression coefficients</h3>
+<figure data-type="image" tabindex="11"><img src="https://hiakkaoyri1220.com/post-images/1709876658018.png" alt="" loading="lazy"></figure>
+<h3 id="pivotal-quantity">Pivotal quantity</h3>
+<figure data-type="image" tabindex="12"><img src="https://hiakkaoyri1220.com/post-images/1709876685724.png" alt="" loading="lazy"></figure>
+<h3 id="confidence-interval-for-beta_j">Confidence interval for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>β</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\beta_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></h3>
+<figure data-type="image" tabindex="13"><img src="https://hiakkaoyri1220.com/post-images/1709876813003.png" alt="" loading="lazy"></figure>
+<h3 id="hypothesis-testing-for-beta_j">Hypothesis testing for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>β</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\beta_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></h3>
+<figure data-type="image" tabindex="14"><img src="https://hiakkaoyri1220.com/post-images/1709876862608.png" alt="" loading="lazy"></figure>
+<h3 id="testing-multiple-coefficients">Testing multiple coefficients</h3>
+<figure data-type="image" tabindex="15"><img src="https://hiakkaoyri1220.com/post-images/1709877492009.png" alt="" loading="lazy"></figure>
+<h3 id="prediction-in-multiple-regression">Prediction in multiple regression</h3>
+<figure data-type="image" tabindex="16"><img src="https://hiakkaoyri1220.com/post-images/1709877533711.png" alt="" loading="lazy"></figure>
+<h3 id="a-1001-alpha-confidence-interval-for-eta_0-xt_0-beta">A <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>100</mn><mo>(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">100(1 - \alpha)%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mclose">)</span></span></span></span> confidence interval for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>η</mi><mn>0</mn></msub><mo>=</mo><msubsup><mi>x</mi><mn>0</mn><mi>T</mi></msubsup><mi>β</mi></mrow><annotation encoding="application/x-tex">\eta_0 = x^{T}_0 \beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.0894389999999998em;vertical-align:-0.24810799999999997em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-2.4518920000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span></h3>
+<figure data-type="image" tabindex="17"><img src="https://hiakkaoyri1220.com/post-images/1709877551435.png" alt="" loading="lazy"></figure>
+<h3 id="a-1001-alpha-prediction-interval-for-y_0">A <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>100</mn><mo>(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">100(1 - \alpha)%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mclose">)</span></span></span></span> prediction interval for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>Y</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">Y_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></h3>
+<figure data-type="image" tabindex="18"><img src="https://hiakkaoyri1220.com/post-images/1709877986917.png" alt="" loading="lazy"></figure>
+<h2 id="case-study">Case study</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1710426799768.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710427441572.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710427691642.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710427704372.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710468015574.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710468036734.png" alt="" loading="lazy"></p>
+<h3 id="anova-test">anova test</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1710468326350.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710468412215.png" alt="" loading="lazy"></p>
+<h3 id="predict">Predict</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1710468661537.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710468690778.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718155766379.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710483399366.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710483434082.png" alt="" loading="lazy"></p>
+<h1 id="week3">Week3</h1>
+<h2 id="factors-in-r">Factors in R</h2>
+<h3 id="multiple-regression-models-in-r">Multiple regression models in R</h3>
+<p>When we use a command of the form lm(y ~ x, data = df) where</p>
+<ul>
+<li>y is a vector containing the y-values and</li>
+<li>x is a vector containing the x-values<br>
+The argument y~ x is called the <strong>model formula</strong><br>
+the term to the left of ~ is the response variables, while the stuff to the right of ~ is used to get the design matrix <em><strong>X</strong></em></li>
+</ul>
+<h3 id="multiple-predictors">Multiple predictors</h3>
+<p>Multiple regression models can be specified by including additional terms in the right hand side of the model formula, separated by the + symbol.</p>
+<h3 id="functions">Functions</h3>
+<p>Functions can be applied directly to any terms in the model formula<br>
+<img src="https://hiakkaoyri1220.com/post-images/1710740976223.png" alt="" loading="lazy"></p>
+<h3 id="i-operator">I() operator</h3>
+<p>Arithmetic calculations, involving addition, subtraction, multiplication, division can also be incorporated into the model formula but must be enclosed within the <em>I</em> (inhibit) function. The reason is that the operators +,-,*,/ and ^ have different interpretations in the context of a model formula</p>
+<h3 id="factors">Factors</h3>
+<p>A categorical presictor variable is called a <strong>factor</strong></p>
+<h3 id="example">example</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1710741209262.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710741325087.png" alt="" loading="lazy"></p>
+<h4 id="constraints">Constraints</h4>
+<p>The additive formulation shown above cannot be used directly because the parameters <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>α</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\alpha_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>β</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\beta_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> are not identifiable</p>
+<ul>
+<li>That is, if we tried to construct the model matrix <em>X</em>, the columns would not be linearly independent.</li>
+<li>For this reason, it is necessarry to impose certain constraints on the parameters</li>
+</ul>
+<h5 id="approach-1-zero-sum">Approach 1: zero sum</h5>
+<p>The classical approach is to impose the side conditions,</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>r</mi></munderover><msub><mi>α</mi><mi>i</mi></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>s</mi></munderover><msub><mi>β</mi><mi>j</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sum_{i=1}^r\alpha_i =\sum_{j=1}^s\beta_j = 0  
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.929066em;vertical-align:-1.277669em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.0651740000000007em;vertical-align:-1.4137769999999998em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000007em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.4137769999999998em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></span></p>
+<h5 id="approach-2-reference-level">Approach 2: reference level</h5>
+<p>For most computing packages, the default parameterisation is to use the <strong>treatment constrasts</strong> defined by</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>α</mi><mn>1</mn></msub><mo>=</mo><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\alpha_1 = \beta_1 = 0
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></span></p>
+<h4 id="interpretation">Interpretation</h4>
+<figure data-type="image" tabindex="19"><img src="https://hiakkaoyri1220.com/post-images/1710741818237.png" alt="" loading="lazy"></figure>
+<h3 id="interactions">interactions</h3>
+<figure data-type="image" tabindex="20"><img src="https://hiakkaoyri1220.com/post-images/1710741854264.png" alt="" loading="lazy"></figure>
+<h3 id="r-example">R example</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1710741904894.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710741982784.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710742103582.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710742124532.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710742114001.png" alt="" loading="lazy"><br>
+x1^2 without I() won't produce anything<br>
+<img src="https://hiakkaoyri1220.com/post-images/1710742223842.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710742237805.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710742302736.png" alt="" loading="lazy"><br>
+reference level delete first column that is alpha order, therefore level 1 disappear. Means if we have k column, we will end up will k-1 column.<br>
+<img src="https://hiakkaoyri1220.com/post-images/1710742316895.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710742432070.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710742443517.png" alt="" loading="lazy"></p>
+<h3 id="the-operator">The + operator</h3>
+<figure data-type="image" tabindex="21"><img src="https://hiakkaoyri1220.com/post-images/1710917354547.png" alt="" loading="lazy"></figure>
+<h3 id="the-operator-parallel-regression">The + operator - parallel regression</h3>
+<figure data-type="image" tabindex="22"><img src="https://hiakkaoyri1220.com/post-images/1710917466521.png" alt="" loading="lazy"></figure>
+<h3 id="the-operator-2">The : operator</h3>
+<p>The interaction operator, :, is used to generate interactions between factors or between factors and covariates<br>
+<img src="https://hiakkaoyri1220.com/post-images/1710917914304.png" alt="" loading="lazy"></p>
+<h3 id="the-operator-seprate-regression">The : operator - seprate regression</h3>
+<figure data-type="image" tabindex="23"><img src="https://hiakkaoyri1220.com/post-images/1710917972937.png" alt="" loading="lazy"></figure>
+<h3 id="the-operator-3">The * operator</h3>
+<figure data-type="image" tabindex="24"><img src="https://hiakkaoyri1220.com/post-images/1710941874676.png" alt="" loading="lazy"></figure>
+<h3 id="the-operator-4">The ^ operator</h3>
+<figure data-type="image" tabindex="25"><img src="https://hiakkaoyri1220.com/post-images/1710941912134.png" alt="" loading="lazy"></figure>
+<h3 id="the-operator-5">The - operator</h3>
+<figure data-type="image" tabindex="26"><img src="https://hiakkaoyri1220.com/post-images/1710941997781.png" alt="" loading="lazy"></figure>
+<h3 id="the-operator-6">The / operator</h3>
+<figure data-type="image" tabindex="27"><img src="https://hiakkaoyri1220.com/post-images/1710942062650.png" alt="" loading="lazy"></figure>
+<h3 id="example-2">Example</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1710942104906.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710942114643.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710942266157.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710942289259.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710942276854.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710942464816.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710942455838.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710942514139.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710942550508.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710942573381.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1710942690100.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718608340163.png" alt="" loading="lazy"><br>
+if it's symbol /, then the slope of Adog is directly the value 0.8,<br>
+if it's symbol is *, the we have to the get the slope of <em>x</em> first, the plus the slope of Adog based on <em>x</em>, that is 0.12 + 0.68 = 0.80<br>
+<img src="https://hiakkaoyri1220.com/post-images/1710942701636.png" alt="" loading="lazy"></p>
+<h2 id="poison-example">Poison example</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1711076808848.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711077246467.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711077256255.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711077639378.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711077649263.png" alt="" loading="lazy"><br>
+the difference between each group compare to the reference level group,<br>
+the intercept is the group mean of the reference level group<br>
+<img src="https://hiakkaoyri1220.com/post-images/1711077657760.png" alt="" loading="lazy"></p>
+<h3 id="different-design-matrix">Different design matrix</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1711077956792.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711077972807.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711077998582.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718297557004.png" alt="" loading="lazy"><br>
+contr is zero sum -&gt; represent average mean</p>
+<p><img src="https://hiakkaoyri1220.com/post-images/1711078492493.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711078501324.png" alt="" loading="lazy"><br>
+pick -1</p>
+<h1 id="week4">Week4</h1>
+<h2 id="marginality">Marginality</h2>
+<h3 id="the-marginality-principle">The marginality principle</h3>
+<p>Whenever an interaction term is included in the model, all implied lower order interactions and main effects must also be included.</p>
+<h4 id="example-3">Example</h4>
+<p>Suppose the interaction term A:B:C is to be included in a model, The marginality principle requires that all of the following model terms must also be included.</p>
+<ul>
+<li>the two-way interaction terms, A:B, A:C, B:C,</li>
+<li>the main effects A,B,C,</li>
+<li>and the intercept 1.</li>
+</ul>
+<h4 id="why-need-marginality-principle">Why need marginality principle?</h4>
+<ul>
+<li>It is necessary to impose constraints on the parameters of the model to achieve identifiability;</li>
+<li>The constraints will not affect the model provided that the marginality principle is observed.</li>
+</ul>
+<h4 id="the-marginality-principle-in-r">The marginality principle in R</h4>
+<figure data-type="image" tabindex="28"><img src="https://hiakkaoyri1220.com/post-images/1712298653540.png" alt="" loading="lazy"></figure>
+<h5 id="example-4">Example</h5>
+<p>If the A main effect is removed(in violation of the marginality principle) R compenstates by removing the constraint <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>γ</mi><mrow><mi>i</mi><mn>1</mn></mrow></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\gamma_{i1} = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05556em;">γ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.05556em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span><br>
+If the interaction term A:B is specified in isolation, i.e. without the necessary main effects, R tries to compensate by removing all constraints on <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>γ</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\gamma_{ij}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05556em;">γ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.05556em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>.<br>
+Note the columns of the resulting model matrix are not <em><strong>linearly independent</strong></em></p>
+<h3 id="models-with-factors-and-covariates">Models with factors and covariates</h3>
+<figure data-type="image" tabindex="29"><img src="https://hiakkaoyri1220.com/post-images/1712299263650.png" alt="" loading="lazy"></figure>
+<h3 id="polynomial-regressions">Polynomial regressions</h3>
+<figure data-type="image" tabindex="30"><img src="https://hiakkaoyri1220.com/post-images/1712300039385.png" alt="" loading="lazy"></figure>
+<h3 id="example-5">example</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718381557058.png" alt="" loading="lazy"><br>
+remove intercept<br>
+<img src="https://hiakkaoyri1220.com/post-images/1712300271378.png" alt="" loading="lazy"></p>
+<h2 id="assumption-checking">Assumption Checking</h2>
+<h3 id="why-assumption-checking">Why assumption checking</h3>
+<p>An important part of good statistical practice is assumption checking.<br>
+When a model is applied to data, it is important to understand that the use of the model involves making certain assumptions about the data.<br>
+If the assumptions are not valid, then conclusions based on the model have the potential to be misleading.<br>
+It is therefore important to check the assumptions as far as possible before using a statistical model to make conclusions.</p>
+<h3 id="regression-assumptions">Regression Assumptions</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712386406376.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712386496206.png" alt="" loading="lazy"><br>
+In practice, most attention is focused on using the data to investigate the plausibility of assumptions 1-3.<br>
+Assumptions 4-6 are more fundamental but cannot be verified from the observed data.<br>
+It is important to understand the context in which the data arose in order to determine whether these assumptions are reasonable.</p>
+<h3 id="residuals">Residuals</h3>
+<p>the left over value between observe value minus the fitted value (actual value minus the predict value)<br>
+<img src="https://hiakkaoyri1220.com/post-images/1712386785011.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712386842183.png" alt="" loading="lazy"></p>
+<h3 id="distribution-of-residuals">Distribution of Residuals</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712386879872.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712386956589.png" alt="" loading="lazy"></p>
+<h3 id="example-6">Example</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718382523913.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718382549641.png" alt="" loading="lazy"></p>
+<h3 id="standardized-residuals">Standardized Residuals</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712466581103.png" alt="" loading="lazy"><br>
+A second difficulty with the raw and standardized residuals:</p>
+<ul>
+<li>an aberrant <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo></mrow><annotation encoding="application/x-tex">y_i-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">−</span></span></span></span>value may influence the corresponding fitted value, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><msub><mi>η</mi><mi>i</mi></msub><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{\eta_i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span></span></span></li>
+<li>this may lead to an unremarkable residual,</li>
+<li>thus masking the fact that the data point was in fact aberrant</li>
+</ul>
+<h3 id="studentized-residuals">Studentized Residuals</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712466850236.png" alt="" loading="lazy"><br>
+The relationship between standardized and studentized<br>
+<img src="https://hiakkaoyri1220.com/post-images/1712466879576.png" alt="" loading="lazy"></p>
+<h3 id="model-checking-with-residuals">Model checking with residuals</h3>
+<p>It is recommended that the studentized residuals be used for basic model checking as introduced in previous courses.</p>
+<ul>
+<li>The <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><msubsup><mi>e</mi><mi>i</mi><mo>∗</mo></msubsup><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{e_{i}^*}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2107999999999999em;vertical-align:-0.27686399999999994em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9339359999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.670496em;"><span style="top:-2.4231360000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span style="top:-3.0448000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.27686399999999994em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.239496em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.27686399999999994em;"><span></span></span></span></span></span></span></span></span> should be plotted against the fitted values to check for lack of fit and heteroscedasticity.</li>
+<li>the  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><msubsup><mi>e</mi><mi>i</mi><mo>∗</mo></msubsup><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{e_{i}^*}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2107999999999999em;vertical-align:-0.27686399999999994em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9339359999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.670496em;"><span style="top:-2.4231360000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span style="top:-3.0448000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.27686399999999994em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.239496em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.27686399999999994em;"><span></span></span></span></span></span></span></span></span> should be plotted against each of the predictor variables separately to check for lack of fit and heteroscedasticity.</li>
+<li>If an additional variable such as &quot;time&quot; is recorded but not considered for inclusion in the model, it is good practice to plot the residuals against time to check for any trends etc.</li>
+<li>if there are no problems with lack of fit, heteroscedasticity and trends over time( when applicable), a normal quantile plot of the residuals can be used to assess the assumpiton of normality.</li>
+</ul>
+<h2 id="influence-diagnostics">influence diagnostics</h2>
+<ul>
+<li>It sometimes happens that a data set contains a small number of outliers or points with large residuals.</li>
+<li>The occurrence of such points can be problemmatic in the sense that a single outlier may have a appreciable impact on the parameter estimates.</li>
+<li>If it cannot be verified that the data point is erroneous then there is no good basis for its omission although one may nevertheless be suspicious.</li>
+<li>Influence diagnostics are used to help identify points that have a disproportionately large impact on the estimates.</li>
+</ul>
+<h3 id="influence">Influence</h3>
+<ul>
+<li>In general, a point with a small studentized residual is unlikely to have a large impact on the parameter estimates.</li>
+<li>A point with a large studentized residual, may or may not depending on its <strong>leverage</strong></li>
+</ul>
+<h3 id="large-residual-high-leverage-high-influence">Large residual, high leverage, high influence</h3>
+<figure data-type="image" tabindex="31"><img src="https://hiakkaoyri1220.com/post-images/1712472286348.png" alt="" loading="lazy"></figure>
+<h3 id="large-residual-low-leverage-low-influence">Large residual, low leverage, low influence</h3>
+<figure data-type="image" tabindex="32"><img src="https://hiakkaoyri1220.com/post-images/1712472355642.png" alt="" loading="lazy"></figure>
+<h3 id="small-residual-high-leverage-low-influence">Small residual, high leverage, low influence</h3>
+<figure data-type="image" tabindex="33"><img src="https://hiakkaoyri1220.com/post-images/1712472434973.png" alt="" loading="lazy"></figure>
+<h3 id="small-residual-low-leverage-low-influence">Small residual, low leverage, low influence</h3>
+<figure data-type="image" tabindex="34"><img src="https://hiakkaoyri1220.com/post-images/1712472481959.png" alt="" loading="lazy"></figure>
+<h3 id="influence-and-leverage">Influence and leverage</h3>
+<p><strong>leverage is the concept of In any particular point, how far away from all the other point</strong>.<br>
+In each case, the blue line represents the least squares regression line when all points are included and the red line is the least square regression line with the marked point excluded.<br>
+In simple linear gression, the notion of <strong>leverage</strong> can be thought of as a metric for the distance from <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> to <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover></mrow><annotation encoding="application/x-tex">\bar{x}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.56778em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.56778em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">x</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;">ˉ</span></span></span></span></span></span></span></span></span><br>
+In the frist plot, where  the marked point has a large residual and of high leverage, the slope is changed appreciably. In the remaining plots, the omission of the marked point has only minimal impact on the least squares regression line.</p>
+<h3 id="leverage-of-data-point">leverage of data point</h3>
+<figure data-type="image" tabindex="35"><img src="https://hiakkaoyri1220.com/post-images/1712472788790.png" alt="" loading="lazy"></figure>
+<h3 id="leverage-of-linear-regression">leverage of linear regression</h3>
+<figure data-type="image" tabindex="36"><img src="https://hiakkaoyri1220.com/post-images/1712472841749.png" alt="" loading="lazy"></figure>
+<h3 id="average-value-of-leverage">average value of leverage</h3>
+<figure data-type="image" tabindex="37"><img src="https://hiakkaoyri1220.com/post-images/1712472918542.png" alt="" loading="lazy"></figure>
+<h3 id="leverage-info">leverage info</h3>
+<ul>
+<li>Leverages are sometimes displayed using an index plot.</li>
+<li>That is, a plot of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>h</mi><mrow><mi>i</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">h_{ii}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> vs i, to identify points of high leverage.</li>
+<li>Some authors suggest that points with <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>h</mi><mi>i</mi></msub><mi>i</mi><mo>≥</mo><mn>2</mn><mi>p</mi><mi mathvariant="normal">/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">h_ii \ge 2p/n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord mathdefault">p</span><span class="mord">/</span><span class="mord mathdefault">n</span></span></span></span> be highlighted</li>
+<li>Shown on the following slide( for the data from the large residual/high leverage scatter plot) is
+<ul>
+<li>the histogram of x-values , and</li>
+<li>a leverage plot.</li>
+</ul>
+</li>
+</ul>
+<h3 id="leverage-example">leverage example</h3>
+<figure data-type="image" tabindex="38"><img src="https://hiakkaoyri1220.com/post-images/1712473177454.png" alt="" loading="lazy"></figure>
+<h3 id="cooks-distanceuse-to-measure-influence">Cook's Distance(use to measure influence)</h3>
+<ul>
+<li>Points of high leverage have potentially a large impact on the estimates<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>β</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{\beta}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1523199999999998em;vertical-align:-0.19444em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span></span></span></li>
+<li>Cook's distance measures how much influence each data point actually has by calculating the effect of its removal upon <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>β</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{\beta}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1523199999999998em;vertical-align:-0.19444em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span></span></span></li>
+<li><img src="https://hiakkaoyri1220.com/post-images/1712473339900.png" alt="" loading="lazy"></li>
+<li><img src="https://hiakkaoyri1220.com/post-images/1712473379781.png" alt="" loading="lazy"></li>
+<li><img src="https://hiakkaoyri1220.com/post-images/1712473402605.png" alt="" loading="lazy"></li>
+</ul>
+<h4 id="plotting-cooks-distance">Plotting Cook's distance</h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712473428577.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712473530875.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712473513036.png" alt="" loading="lazy"></p>
+<h2 id="case-study-cheese">Case study - Cheese</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712474257614.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712474271271.png" alt="" loading="lazy"><br>
+get residuals and studentized residuals<br>
+<img src="https://hiakkaoyri1220.com/post-images/1712552512847.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712552714037.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718523181145.png" alt="" loading="lazy"><br>
+standardised and studentized residuals vs residuals should be roughly the same, if not, that means we have a influence point</p>
+<h1 id="week5">Week5</h1>
+<h2 id="gls">GLS</h2>
+<h3 id="generalised-least-squares">Generalised least squares</h3>
+<figure data-type="image" tabindex="42"><img src="https://hiakkaoyri1220.com/post-images/1712556754126.png" alt="" loading="lazy"></figure>
+<h4 id="symmetry">Symmetry</h4>
+<figure data-type="image" tabindex="43"><img src="https://hiakkaoyri1220.com/post-images/1712556772427.png" alt="" loading="lazy"></figure>
+<h4 id="positive-definite">Positive definite</h4>
+<figure data-type="image" tabindex="44"><img src="https://hiakkaoyri1220.com/post-images/1712556805910.png" alt="" loading="lazy"></figure>
+<h4 id="variance-matrices-are-non-negative-definite">Variance matrices are non-negative definite</h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712556850607.png" alt="" loading="lazy"><br>
+If <em>V</em> is non-negative definite but not positive definite, then there must exist <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi mathvariant="normal">≠</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">a \ne 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel"><span class="mrel"><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="rlap"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="inner"><span class="mrel"></span></span><span class="fix"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> for which</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi><mi>a</mi><mi>r</mi><mo>(</mo><msup><mi>a</mi><mi>T</mi></msup><mi>Y</mi><mo>)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">var(a^TY) = 0
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1413309999999999em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913309999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></span></p>
+<p>In this case, one of the observations is a linear function of the others.<br>
+To eliminate any such redundancy, we assume that V is positive definite</p>
+<h3 id="ordinary-least-squares">Ordinary least squares</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712561198987.png" alt="" loading="lazy"><br>
+OLS not optimal</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><msub><mi>β</mi><mrow><mi>O</mi><mi>L</mi><mi>S</mi></mrow></msub><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{\beta_{OLS}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1523199999999998em;vertical-align:-0.19444em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">O</span><span class="mord mathdefault mtight">L</span><span class="mord mathdefault mtight" style="margin-right:0.05764em;">S</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span></span></span> is an unbiased linear estimator that we can easily compute</li>
+<li>But the assumptions of the Gauss-Markov theorem do not hold.</li>
+<li>it is therefore not the <strong>best</strong> linear unbiased estimator</li>
+</ul>
+<h3 id="squaer-root-matrices">Squaer-root matrices</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712561528909.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712561645727.png" alt="" loading="lazy"></p>
+<h3 id="generalised-least-squares-2">Generalised least squares</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718530595720.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712563279596.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712563300714.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712563458795.png" alt="" loading="lazy"></p>
+<h3 id="weighted-least-squares">Weighted least squares</h3>
+<figure data-type="image" tabindex="45"><img src="https://hiakkaoyri1220.com/post-images/1712563501587.png" alt="" loading="lazy"></figure>
+<h4 id="example-7">Example</h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712563522204.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712563593926.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712563603026.png" alt="" loading="lazy"><br>
+Intuitively, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>μ</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{\mu}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">μ</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span></span></span> gives greater weight to observations with lower variance, compared to the OLS estimator <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>Y</mi><mo stretchy="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">\overline{Y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833300000000001em;vertical-align:0em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span></span></span><span style="top:-3.80333em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span> which weights all observations equally.<br>
+It can also be proved from first principles to be the best linear unbiased estimator for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">μ</span></span></span></span></p>
+<h2 id="box-cox">Box-Cox</h2>
+<h3 id="transformations">Transformations</h3>
+<p>When the assumptions of linearity, homoscedasticity and normality are found to be violated, it is sometimes possible to find a simple transformation of the data for which the regression assumptions are more reasonable.<br>
+For example, transformations such as log <em>y</em>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mi>y</mi></msqrt><mo separator="true">,</mo><mfrac><mn>1</mn><mi>y</mi></mfrac></mrow><annotation encoding="application/x-tex">\sqrt{y},\frac{1}{y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.326216em;vertical-align:-0.481108em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.70306em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span><span style="top:-2.66306em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.33693999999999996em;"><span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.481108em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> when dealing with a positive variable <em>Y</em><br>
+A simple approach is to consider each of these transformations and chose the one for which the model diagnostics(residuals) appear most reasonable.</p>
+<h3 id="the-box-cox-transformations">The Box-Cox transformations</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712564447016.png" alt="" loading="lazy"><br>
+by L'Hôpital's rule<br>
+<img src="https://hiakkaoyri1220.com/post-images/1718531691466.png" alt="" loading="lazy"></p>
+<h3 id="overview">Overview</h3>
+<p>The Box-Cox approach to transformation consists of the following steps.</p>
+<ul>
+<li>In the first instance, treat <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>λ</mi></mrow><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">λ</span></span></span></span> as an unknown parameter and obtain an estimate <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>λ</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{\lambda}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9578799999999998em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">λ</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;">^</span></span></span></span></span></span></span></span></span> from the data;</li>
+<li>Perform the usual regression diagnostics on the transformed data.
+<ul>
+<li>If they are satisfactory, adopt <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>λ</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{\lambda}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9578799999999998em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">λ</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;">^</span></span></span></span></span></span></span></span></span></li>
+<li>if they are not satisfactory, conclude that no suitable transformationis available.</li>
+</ul>
+</li>
+<li>When a transformation is adopted, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>λ</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{\lambda}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9578799999999998em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">λ</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;">^</span></span></span></span></span></span></span></span></span> is treated as a known constant and analysis of the transformed data proceeds in the usual way.</li>
+</ul>
+<h3 id="the-profile-likelihood">The profile likelihood</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712580512871.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712581149807.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712581175323.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712581604881.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712581675580.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712581742791.png" alt="" loading="lazy"></p>
+<h3 id="case-studyexample-of-box-cox">Case study(example of  box-cox)</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712582581685.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712582659897.png" alt="" loading="lazy"><br>
+have problem with heteroscedasticity</p>
+<h4 id="box-cox-2">Box-Cox</h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712582754766.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712582786236.png" alt="" loading="lazy"><br>
+three lines, the middle one is maximum likelihood, the value we should use, other two are the 95% confidence interval</p>
+<h4 id="change-to-log">Change to log</h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712582861512.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712582895256.png" alt="" loading="lazy"></p>
+<h1 id="week6">Week6</h1>
+<h2 id="lrlogistic-regression">LR(logistic regression)</h2>
+<figure data-type="image" tabindex="46"><img src="https://hiakkaoyri1220.com/post-images/1712636580428.png" alt="" loading="lazy"></figure>
+<h3 id="the-binomial-model">THe binomial model</h3>
+<figure data-type="image" tabindex="47"><img src="https://hiakkaoyri1220.com/post-images/1712636676879.png" alt="" loading="lazy"></figure>
+<h3 id="linear-model-for-the-probability">Linear model for the probability</h3>
+<figure data-type="image" tabindex="48"><img src="https://hiakkaoyri1220.com/post-images/1712636722256.png" alt="" loading="lazy"></figure>
+<h3 id="the-logistic-regression-model">The logistic regression model</h3>
+<figure data-type="image" tabindex="49"><img src="https://hiakkaoyri1220.com/post-images/1712636772579.png" alt="" loading="lazy"></figure>
+<h3 id="properties-of-the-logit-transformation">Properties of the logit transformation</h3>
+<figure data-type="image" tabindex="50"><img src="https://hiakkaoyri1220.com/post-images/1712636869770.png" alt="" loading="lazy"></figure>
+<h3 id="the-logistic-curve">The logistic curve</h3>
+<figure data-type="image" tabindex="51"><img src="https://hiakkaoyri1220.com/post-images/1712636927724.png" alt="" loading="lazy"></figure>
+<h3 id="bettle-example">Bettle example</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712637171416.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712637161209.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1714719439001.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1712637217700.png" alt="" loading="lazy"></p>
+<h3 id="no-additive-error">No additive error</h3>
+<figure data-type="image" tabindex="52"><img src="https://hiakkaoyri1220.com/post-images/1712637288589.png" alt="" loading="lazy"></figure>
+<h3 id="bettle-case-study">Bettle case study</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1712637493910.png" alt="" loading="lazy"><br>
+by changing parameter in geom_smooth(), we can create a logistic regression line<br>
+<img src="https://hiakkaoyri1220.com/post-images/1712637504508.png" alt="" loading="lazy"><br>
+building  up <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> matrix as the response variable, let family = binomial to mapping the matrix as success and failure, using logit.<br>
+<img src="https://hiakkaoyri1220.com/post-images/1712637683416.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718559494653.png" alt="" loading="lazy"></p>
+<h1 id="week-7">Week 7</h1>
+<h2 id="mle">MLE</h2>
+<h3 id="estimation">Estimation</h3>
+<figure data-type="image" tabindex="53"><img src="https://hiakkaoyri1220.com/post-images/1713767158594.png" alt="" loading="lazy"></figure>
+<h3 id="maximum-likelihood-for-vector-form">Maximum likelihood for vector form</h3>
+<figure data-type="image" tabindex="54"><img src="https://hiakkaoyri1220.com/post-images/1713767383041.png" alt="" loading="lazy"></figure>
+<h3 id="the-log-likelihood-function">The log-likelihood function</h3>
+<figure data-type="image" tabindex="55"><img src="https://hiakkaoyri1220.com/post-images/1713767378180.png" alt="" loading="lazy"></figure>
+<h4 id="the-maximum-likelihodo-equations">The maximum likelihodo equations</h4>
+<p>To fidn the maximum likelihood estimates, we need to solve the equations</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mfrac><mrow><mi mathvariant="normal">∂</mi><mi mathvariant="normal">ℓ</mi></mrow><mrow><mi mathvariant="normal">∂</mi><msub><mi>β</mi><mi>j</mi></msub></mrow></mfrac><mo>=</mo><mn>0</mn></mstyle></mrow><annotation encoding="application/x-tex">\displaystyle \frac{\partial \ell}{\partial \beta_j} =0 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.343548em;vertical-align:-0.972108em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord">ℓ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.972108em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></span></p>
+<p>for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">j = 1,2,\dots,p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span></span></span></span><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713767931423.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713768119546.png" alt="" loading="lazy"></p>
+<h3 id="the-information-matrix">The information matrix</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1713768202024.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713768292994.png" alt="" loading="lazy"></p>
+<h3 id="newton-raphson-algorithm">Newton-Raphson algorithm</h3>
+<figure data-type="image" tabindex="56"><img src="https://hiakkaoyri1220.com/post-images/1713768514147.png" alt="" loading="lazy"></figure>
+<h3 id="fisher-scoring">Fisher Scoring</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1713768603890.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713768674285.png" alt="" loading="lazy"></p>
+<h3 id="initial-value">Initial value</h3>
+<figure data-type="image" tabindex="57"><img src="https://hiakkaoyri1220.com/post-images/1713768701412.png" alt="" loading="lazy"></figure>
+<h2 id="inference">Inference</h2>
+<h3 id="inference-for-regression-coefficients">Inference for regression coefficients</h3>
+<figure data-type="image" tabindex="58"><img src="https://hiakkaoyri1220.com/post-images/1713769159471.png" alt="" loading="lazy"></figure>
+<h3 id="confidence-interval">Confidence interval</h3>
+<figure data-type="image" tabindex="59"><img src="https://hiakkaoyri1220.com/post-images/1713769211785.png" alt="" loading="lazy"></figure>
+<h3 id="hypotheses-concerning-several-parameters">Hypotheses concerning several parameters</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1713769431532.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713769479721.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713769493791.png" alt="" loading="lazy"></p>
+<h3 id="deviance-statistic">Deviance statistic</h3>
+<figure data-type="image" tabindex="60"><img src="https://hiakkaoyri1220.com/post-images/1713769522366.png" alt="" loading="lazy"></figure>
+<h3 id="model-fit">Model fit</h3>
+<p>As with any statistical analysis we need to check the model assumptions.<br>
+In this case, there are two approaches that can be used.</p>
+<ul>
+<li>A formal approach: hypothesis testing.</li>
+<li>An less formal approach: observe residuals from the model fit.</li>
+</ul>
+<h4 id="formal-approach">Formal approach</h4>
+<p>the likelihood ratio test statistic against the saturated model can be obtained as the residual deviance. It fcan also obtained using <code>anova()</code> function to compare the glm object against model. When compare, it is essential that one of the models is a sub-model of the other.</p>
+<h4 id="less-formal-approach">Less formal approach</h4>
+<p>Plot residual from the model fit.</p>
+<h3 id="pearson-residual">pearson residual</h3>
+<figure data-type="image" tabindex="61"><img src="https://hiakkaoyri1220.com/post-images/1713770139303.png" alt="" loading="lazy"></figure>
+<h3 id="deviance-residual">deviance residual</h3>
+<figure data-type="image" tabindex="62"><img src="https://hiakkaoyri1220.com/post-images/1713770165815.png" alt="" loading="lazy"></figure>
+<h3 id="residual">residual</h3>
+<p>Both types of residuals can use as residuals from ordinary linera regression. Take care that they <em><strong>are not standardized</strong></em></p>
+<h3 id="non-grouped-data-residuals">Non-grouped data residuals</h3>
+<figure data-type="image" tabindex="63"><img src="https://hiakkaoyri1220.com/post-images/1713770315967.png" alt="" loading="lazy"></figure>
+<h3 id="over-dispersion">Over-dispersion</h3>
+<figure data-type="image" tabindex="64"><img src="https://hiakkaoyri1220.com/post-images/1713770377935.png" alt="" loading="lazy"></figure>
+<h4 id="case-study-2">Case study</h4>
+<figure data-type="image" tabindex="65"><img src="https://hiakkaoyri1220.com/post-images/1713775616674.png" alt="" loading="lazy"></figure>
+<h3 id="existence-of-mle">Existence of MLE</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1713770550059.png" alt="" loading="lazy"><br>
+the data too good, not convergence well<br>
+<img src="https://hiakkaoyri1220.com/post-images/1713770585767.png" alt="" loading="lazy"></p>
+<h3 id="warning-signs-for-logistic-regression">Warning signs for logistic regression</h3>
+<p>When using the logistic regression, it is good practice to check for convergence. In particular,</p>
+<ul>
+<li>warning messages</li>
+<li>High number of iterations</li>
+<li>Some parameter estimates and standard errors with very large numerical values.</li>
+<li>Estimated probabilities very close to zero or one.</li>
+</ul>
+<h2 id="case-study-beetle">Case study beetle</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1713773481798.png" alt="" loading="lazy"><br>
+std.error is the invert fisher information diganotics<br>
+<img src="https://hiakkaoyri1220.com/post-images/1713773486822.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718627026592.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718627038072.png" alt="" loading="lazy"><br>
+A saturated model is a model that is overparameterized to the point that it is basically just interpolating the data.<br>
+<img src="https://hiakkaoyri1220.com/post-images/1713773592024.png" alt="" loading="lazy"><br>
+This means the residual deviance is at 0.02 level, so it is significant<br>
+<img src="https://hiakkaoyri1220.com/post-images/1713773838672.png" alt="" loading="lazy"><br>
+can still improve since it is very small<br>
+<img src="https://hiakkaoyri1220.com/post-images/1713773944388.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713773966070.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713774033058.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713774144727.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713774154091.png" alt="" loading="lazy"></p>
+<h2 id="cells-example">Cells example</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718627570048.png" alt="" loading="lazy"><br>
+over-dispersion</p>
+<h2 id="fisher-score-implement-in-r">Fisher score implement in R</h2>
+<figure data-type="image" tabindex="66"><img src="https://hiakkaoyri1220.com/post-images/1713775816357.png" alt="" loading="lazy"></figure>
+<h3 id="find-x">Find X</h3>
+<figure data-type="image" tabindex="67"><img src="https://hiakkaoyri1220.com/post-images/1713775889608.png" alt="" loading="lazy"></figure>
+<h3 id="find-beta0">Find <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>β</mi><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">\beta^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span></h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1713775963186.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713775975517.png" alt="" loading="lazy"></p>
+<h3 id="find-betat1-text-given-betat">Find <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>β</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msup><mtext> given </mtext><msup><mi>β</mi><mi>t</mi></msup></mrow><annotation encoding="application/x-tex">\beta^{t+1} \text{ given } \beta^t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mord text"><span class="mord"> given </span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7935559999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span></span></span></span></span></span></span></span></h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1713776041234.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713776065482.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713776100793.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713776128136.png" alt="" loading="lazy"></p>
+<h1 id="week-8">Week 8</h1>
+<h2 id="stratification">Stratification</h2>
+<h3 id="common-odds-ratios-for-several-2-times-2-tables">Common odds ratios for several  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2 \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> tables</h3>
+<p>Sometimes it happens that an experiment or observational study is replicated across many strata</p>
+<h3 id="example-for-uc_berkeley-data-set">Example for UC_Berkeley data set</h3>
+<ul>
+<li>Observational study</li>
+<li>Applications for admission to graduate study</li>
+<li>Classified according to
+<ul>
+<li>whether the applicant was admitted;</li>
+<li>the sex of the applicant;</li>
+<li>the department applied to<br>
+<img src="https://hiakkaoyri1220.com/post-images/1714451676078.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1714451701860.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1714451759317.png" alt="" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h3 id="odds-ratios">Odds ratios</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1714451887344.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1714451899787.png" alt="" loading="lazy"></p>
+<h3 id="the-common-odds-ratio-model">The common odds ratio model</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1714452370944.png" alt="" loading="lazy"><br>
+In the analysis, the(common) log odds-ratio is estimated to be -0.09987 with a standard error of 0.08085.<br>
+This is not significantly different from 0 which implies no strong evidence of discrimination within department in either direction</p>
+<h4 id="simpsons-paradox">Simpson's Paradox</h4>
+<figure data-type="image" tabindex="68"><img src="https://hiakkaoyri1220.com/post-images/1714452575968.png" alt="" loading="lazy"></figure>
+<h3 id="proportion-plot">Proportion plot</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1714452674621.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1714452686832.png" alt="" loading="lazy"></p>
+<h3 id="prospective-and-retrospective-studies">Prospective and retrospective studies</h3>
+<figure data-type="image" tabindex="69"><img src="https://hiakkaoyri1220.com/post-images/1714453305686.png" alt="" loading="lazy"></figure>
+<h3 id="retrospective-studies">Retrospective studies</h3>
+<figure data-type="image" tabindex="70"><img src="https://hiakkaoyri1220.com/post-images/1714453392100.png" alt="" loading="lazy"></figure>
+<h3 id="analysis-for-retrospective-studies">Analysis for retrospective studies</h3>
+<p>The retrospective studies require a very different analysis to ordinary prospective studies.<br>
+While this is generally the case, for certain retrospective studies, the logistic regression model can be validly applied as if it were a prospective study.</p>
+<h3 id="logistic-regression-and-retrospective-studies">Logistic regression and retrospective studies</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1714453524692.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1714453920471.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1714453965323.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1714501721986.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1714454040629.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1714454056060.png" alt="" loading="lazy"></p>
+<h3 id="example-8">Example</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718668573386.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718668590581.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718668757586.png" alt="" loading="lazy"></p>
+<h2 id="generalised-linear-models-summary">Generalised linear models summary</h2>
+<figure data-type="image" tabindex="71"><img src="https://hiakkaoyri1220.com/post-images/1716017042511.png" alt="" loading="lazy"></figure>
+<h2 id="week-9">Week 9</h2>
+<h3 id="poisson-regression">Poisson regression</h3>
+<h4 id="poisson-data">Poisson data</h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1716016572617.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1716016785998.png" alt="" loading="lazy"></p>
+<h4 id="poisson-regression-models">Poisson Regression models</h4>
+<figure data-type="image" tabindex="72"><img src="https://hiakkaoyri1220.com/post-images/1716016856929.png" alt="" loading="lazy"></figure>
+<h4 id="log-linera-models">Log-linera Models</h4>
+<figure data-type="image" tabindex="73"><img src="https://hiakkaoyri1220.com/post-images/1716016992346.png" alt="" loading="lazy"></figure>
+<h4 id="fitting-in-r">Fitting in r</h4>
+<figure data-type="image" tabindex="74"><img src="https://hiakkaoyri1220.com/post-images/1716017123435.png" alt="" loading="lazy"></figure>
+<h4 id="interpretation-of-coefficients">Interpretation of coefficients</h4>
+<figure data-type="image" tabindex="75"><img src="https://hiakkaoyri1220.com/post-images/1716017218251.png" alt="" loading="lazy"></figure>
+<h5 id="example-9">Example</h5>
+<figure data-type="image" tabindex="76"><img src="https://hiakkaoyri1220.com/post-images/1716017305486.png" alt="" loading="lazy"></figure>
+<h3 id="poisson-rate-regression">Poisson rate regression</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1716017365290.png" alt="" loading="lazy"><br>
+log(offset) always equal to 1<br>
+<img src="https://hiakkaoyri1220.com/post-images/1716017504337.png" alt="" loading="lazy"></p>
+<h3 id="case-study-roadkill-poisson-regression">Case study- Roadkill (poisson regression)</h3>
+<figure data-type="image" tabindex="77"><img src="https://hiakkaoyri1220.com/post-images/1716018061557.png" alt="" loading="lazy"></figure>
+<h4 id="update-model">Update model</h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1716018082226.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718673356735.png" alt="" loading="lazy"><br>
+pattern exist<br>
+<img src="https://hiakkaoyri1220.com/post-images/1718673397187.png" alt="" loading="lazy"><br>
+predict will give you log(y_i), if we want the y_i, we can set type = response</p>
+<h3 id="poisson-rate-regression-case-study">Poisson rate regression case study</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718673636752.png" alt="" loading="lazy"><br>
+log offset force to be 1<br>
+<img src="https://hiakkaoyri1220.com/post-images/1718673767271.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718673779432.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718673794688.png" alt="" loading="lazy"></p>
+<h1 id="week-10">Week 10</h1>
+<h2 id="leprosy-example">Leprosy example</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718717724536.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718717738922.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718717764062.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718717819451.png" alt="" loading="lazy"><br>
+since it should be randomrised, we clearly see control has large group mean than other two<br>
+<img src="https://hiakkaoyri1220.com/post-images/1718717906721.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718717939471.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718717951937.png" alt="" loading="lazy"><br>
+before do the experiment, remember to put Covariate to check its effect</p>
+<h2 id="fev">FEV</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718719105780.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718719115582.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718719204987.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718719234929.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718719246469.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718719281643.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718719326092.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718719337451.png" alt="" loading="lazy"><br>
+call marginal prediction<br>
+<img src="https://hiakkaoyri1220.com/post-images/1718719350558.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718719410369.png" alt="" loading="lazy"></p>
+<h1 id="week-11">Week 11</h1>
+<h2 id="model-selection">Model selection</h2>
+<h3 id="model-selection-2">Model selection</h3>
+<figure data-type="image" tabindex="78"><img src="https://hiakkaoyri1220.com/post-images/1718724069016.png" alt="" loading="lazy"></figure>
+<h4 id="the-forward-selection-algorithm-with-p-values">The forward selection algorithm with P-values</h4>
+<figure data-type="image" tabindex="79"><img src="https://hiakkaoyri1220.com/post-images/1718724295241.png" alt="" loading="lazy"></figure>
+<h4 id="the-backwards-elimination-algorithm-with-p-values">The backwards elimination algorithm with P-values</h4>
+<figure data-type="image" tabindex="80"><img src="https://hiakkaoyri1220.com/post-images/1718724696564.png" alt="" loading="lazy"></figure>
+<h4 id="the-stepwise-selection-procedure-with-p-values">The stepwise selection procedure with P-values</h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718724799588.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718724869072.png" alt="" loading="lazy"></p>
+<h4 id="principle-of-marginality">Principle of marginality</h4>
+<p>Whenever an interaction term is included in the model, all implied lower order interactions and main effects must also be included.<br>
+For example if we find that we have an interaction ter, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mrow><mi>i</mi><mn>1</mn></mrow></msub><msub><mi>x</mi><mrow><mi>i</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">x_{i1}x_{i2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> in the model, then we must keep the main effect <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mrow><mi>i</mi><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">x_{i1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mrow><mi>i</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">x_{i2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> in the model</p>
+<h3 id="measures">Measures</h3>
+<h4 id="root-mean-square-errorrmse">Root mean square error(RMSE)</h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718725135511.png" alt="" loading="lazy"><br>
+observed value minus the fitted value,smaller the better</p>
+<h4 id="r-squared">R-squared</h4>
+<figure data-type="image" tabindex="81"><img src="https://hiakkaoyri1220.com/post-images/1718725216613.png" alt="" loading="lazy"></figure>
+<h4 id="mean-absolute-errormae">Mean absolute error(MAE)</h4>
+<figure data-type="image" tabindex="82"><img src="https://hiakkaoyri1220.com/post-images/1718725238186.png" alt="" loading="lazy"></figure>
+<h4 id="adjusted-r2">Adjusted <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>R</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">R^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718725262989.png" alt="" loading="lazy"><br>
+close to one, the better</p>
+<h4 id="c_p"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">C_p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></h4>
+<figure data-type="image" tabindex="83"><img src="https://hiakkaoyri1220.com/post-images/1718725314112.png" alt="" loading="lazy"></figure>
+<h4 id="residuals-summar-squared">Residuals summar squared</h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718725361174.png" alt="" loading="lazy"><br>
+observed value minus the fitted value</p>
+<h4 id="mallows-c_p">Mallow's <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">C_p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></h4>
+<figure data-type="image" tabindex="84"><img src="https://hiakkaoyri1220.com/post-images/1718725444454.png" alt="" loading="lazy"></figure>
+<h4 id="aic">AIC</h4>
+<figure data-type="image" tabindex="85"><img src="https://hiakkaoyri1220.com/post-images/1718725455976.png" alt="" loading="lazy"></figure>
+<h4 id="akaike-information-criterion-corrected-aicc">Akaike information criterion corrected (AICc)</h4>
+<figure data-type="image" tabindex="86"><img src="https://hiakkaoyri1220.com/post-images/1718725520745.png" alt="" loading="lazy"></figure>
+<h4 id="bic">BIC</h4>
+<figure data-type="image" tabindex="87"><img src="https://hiakkaoyri1220.com/post-images/1718725531919.png" alt="" loading="lazy"></figure>
+<h3 id="cross-validation">Cross validation</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718725628715.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718725643597.png" alt="" loading="lazy"></p>
+<h4 id="notation-2">Notation</h4>
+<figure data-type="image" tabindex="88"><img src="https://hiakkaoyri1220.com/post-images/1718725658413.png" alt="" loading="lazy"></figure>
+<h4 id="prediction-error">Prediction error</h4>
+<figure data-type="image" tabindex="89"><img src="https://hiakkaoyri1220.com/post-images/1718725674822.png" alt="" loading="lazy"></figure>
+<h3 id="ridge-regression">Ridge regression</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718726004229.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718726018402.png" alt="" loading="lazy"></p>
+<h4 id="the-complexity-parameter-lambda">The complexity parameter <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>λ</mi></mrow><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">λ</span></span></span></span></h4>
+<figure data-type="image" tabindex="90"><img src="https://hiakkaoyri1220.com/post-images/1718726083995.png" alt="" loading="lazy"></figure>
+<h4 id="dealing-with-the-intercept-term">Dealing with the intercept term</h4>
+<figure data-type="image" tabindex="91"><img src="https://hiakkaoyri1220.com/post-images/1718726115831.png" alt="" loading="lazy"></figure>
+<h4 id="ridge-regression-for-centred-data">Ridge regression for centred data</h4>
+<figure data-type="image" tabindex="92"><img src="https://hiakkaoyri1220.com/post-images/1718726194088.png" alt="" loading="lazy"></figure>
+<h4 id="scaling">Scaling</h4>
+<figure data-type="image" tabindex="93"><img src="https://hiakkaoyri1220.com/post-images/1718726224717.png" alt="" loading="lazy"></figure>
+<h4 id="model-complexity">Model complexity</h4>
+<figure data-type="image" tabindex="94"><img src="https://hiakkaoyri1220.com/post-images/1718726239065.png" alt="" loading="lazy"></figure>
+<h3 id="mpg-case-study">Mpg case study</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718726972365.png" alt="" loading="lazy"><br>
+bigger than 10, keep it, else set it to other<br>
+<img src="https://hiakkaoyri1220.com/post-images/1718727009645.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718727019433.png" alt="" loading="lazy"></p>
+<h4 id="backwards">Backwards</h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718727131315.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718727170766.png" alt="" loading="lazy"><br>
+if any p-values greater than 0.05, find the largest and then remove it.</p>
+<h4 id="backwards-using-aic">Backwards using AIC</h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718727252519.png" alt="" loading="lazy"><br>
+it looks bigger, than</p>
+<h4 id="forwards-using-aic">Forwards using AIC</h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718728975436.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718729034646.png" alt="" loading="lazy"><br>
+pick the smallest one.</p>
+<h4 id="both">Both</h4>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718729442326.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718729389663.png" alt="" loading="lazy"></p>
+<h4 id="rmse">RMSE</h4>
+<p>pick the smaller one<br>
+<img src="https://hiakkaoyri1220.com/post-images/1718729503949.png" alt="" loading="lazy"></p>
+<h1 id="week-12">Week 12</h1>
+<h2 id="the-geometry-of-least-squares">The Geometry of Least Squares</h2>
+<figure data-type="image" tabindex="95"><img src="https://hiakkaoyri1220.com/post-images/1718730193966.png" alt="" loading="lazy"></figure>
+<h3 id="overview-2">Overview</h3>
+<figure data-type="image" tabindex="96"><img src="https://hiakkaoyri1220.com/post-images/1718730235400.png" alt="" loading="lazy"></figure>
+<h3 id="subspace">Subspace</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718730255998.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718730282748.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718730295605.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718730309221.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718730336905.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718730392115.png" alt="" loading="lazy"></p>
+<h3 id="vector-subspaces">Vector subspaces</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718730444373.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718730490696.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718730508755.png" alt="" loading="lazy"></p>
+<h3 id="span">Span</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718730537988.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718730598039.png" alt="" loading="lazy"></p>
+<h3 id="basis">Basis</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718730646311.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718730689359.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718730738199.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718730783175.png" alt="" loading="lazy"></p>
+<h3 id="alternative-bases">Alternative Bases</h3>
+<figure data-type="image" tabindex="97"><img src="https://hiakkaoyri1220.com/post-images/1718730802715.png" alt="" loading="lazy"></figure>
+<h3 id="dimension-of-a-subspace">Dimension of a subspace</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718730838511.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718730853265.png" alt="" loading="lazy"></p>
+<h3 id="linear-models">Linear Models</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718730896580.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718730922981.png" alt="" loading="lazy"></p>
+<h3 id="the-projection-matrix">The projection matrix</h3>
+<figure data-type="image" tabindex="98"><img src="https://hiakkaoyri1220.com/post-images/1718730998619.png" alt="" loading="lazy"></figure>
+<h3 id="the-orthogonal-complement">The Orthogonal Complement</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718731044230.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718731083463.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718731102738.png" alt="" loading="lazy"></p>
+<h3 id="orthogonal-projection">Orthogonal Projection</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718731171434.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718731210314.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718731238742.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718731249732.png" alt="" loading="lazy"></p>
+<h3 id="the-least-squares-property">The least squares property</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718731278353.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718731316893.png" alt="" loading="lazy"></p>
+<h3 id="the-normal-equation">The normal equation</h3>
+<figure data-type="image" tabindex="99"><img src="https://hiakkaoyri1220.com/post-images/1718731368558.png" alt="" loading="lazy"></figure>
+<h3 id="symmetry-and-idempotence">Symmetry and Idempotence</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718731403002.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718731574267.png" alt="" loading="lazy"></p>
+<h3 id="the-matrix-formulation">The matrix formulation</h3>
+<figure data-type="image" tabindex="100"><img src="https://hiakkaoyri1220.com/post-images/1718731433765.png" alt="" loading="lazy"></figure>
+<h3 id="test-of-hypotheses-and-anova">Test of Hypotheses and ANOVA</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718731465069.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718731479218.png" alt="" loading="lazy"></p>
+<h3 id="the-expected-mean-squares">The expected mean squares</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718731500306.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718731597620.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718731705913.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718731734395.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718731748620.png" alt="" loading="lazy"></p>
+<h3 id="the-f-statistic">The F-statistic</h3>
+<figure data-type="image" tabindex="101"><img src="https://hiakkaoyri1220.com/post-images/1718731770597.png" alt="" loading="lazy"></figure>
+<h3 id="geometry-of-generalised-least-squares">Geometry of generalised least squares</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718731839959.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718731877533.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718731898803.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718731913905.png" alt="" loading="lazy"></p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#week1">Week1</a>
+<ul>
+<li><a href="#linear-regression">Linear Regression</a>
+<ul>
+<li><a href="#multiple-linear-regression">Multiple Linear Regression</a></li>
+<li><a href="#random-vectors">Random vectors</a></li>
+<li><a href="#random-matrix">Random matrix</a></li>
+<li><a href="#linear-transformations">Linear transformations</a></li>
+<li><a href="#normal-distribution">Normal distribution</a></li>
+</ul>
+</li>
+<li><a href="#mlr">MLR</a>
+<ul>
+<li><a href="#multiple-regression">Multiple regression</a></li>
+<li><a href="#notation">Notation</a></li>
+<li><a href="#multiple-regression-model">Multiple regression model</a></li>
+<li><a href="#alternative-forms">Alternative forms</a></li>
+<li><a href="#matrix-formulation">Matrix formulation</a></li>
+<li><a href="#linear-independence">Linear Independence</a></li>
+<li><a href="#identifiability">Identifiability</a></li>
+<li><a href="#linear-least-squares">Linear least squares</a></li>
+<li><a href="#theorem-11">Theorem 1.1.</a></li>
+<li><a href="#fitted-values">Fitted values</a></li>
+<li><a href="#alternative-notation">Alternative notation</a></li>
+<li><a href="#theorem-12">Theorem 1.2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#week2">Week2</a><br>
+*
+<ul>
+<li><a href="#estimable-functions-and-best-linear-unbiased-estimates">Estimable functions and best linear unbiased estimates</a></li>
+<li><a href="#estimable-function">estimable function</a></li>
+<li><a href="#the-gauss-markov-theorem">The Gauss-Markov Theorem</a>
+<ul>
+<li><a href="#proof">Proof</a></li>
+</ul>
+</li>
+<li><a href="#inference-for-multiple-regression-regression-coefficients">Inference for multiple regression: regression coefficients</a></li>
+<li><a href="#pivotal-quantity">Pivotal quantity</a></li>
+<li><a href="#confidence-interval-for-beta_j">Confidence interval for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>β</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\beta_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></a></li>
+<li><a href="#hypothesis-testing-for-beta_j">Hypothesis testing for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>β</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\beta_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></a></li>
+<li><a href="#testing-multiple-coefficients">Testing multiple coefficients</a></li>
+<li><a href="#prediction-in-multiple-regression">Prediction in multiple regression</a></li>
+<li><a href="#a-1001-alpha-confidence-interval-for-eta_0-xt_0-beta">A <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>100</mn><mo>(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">100(1 - \alpha)%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mclose">)</span></span></span></span> confidence interval for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>η</mi><mn>0</mn></msub><mo>=</mo><msubsup><mi>x</mi><mn>0</mn><mi>T</mi></msubsup><mi>β</mi></mrow><annotation encoding="application/x-tex">\eta_0 = x^{T}_0 \beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.0894389999999998em;vertical-align:-0.24810799999999997em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-2.4518920000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span></a></li>
+<li><a href="#a-1001-alpha-prediction-interval-for-y_0">A <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>100</mn><mo>(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">100(1 - \alpha)%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mclose">)</span></span></span></span> prediction interval for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>Y</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">Y_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></a></li>
+<li><a href="#case-study">Case study</a>
+<ul>
+<li><a href="#anova-test">anova test</a></li>
+<li><a href="#predict">Predict</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#week3">Week3</a>
+<ul>
+<li><a href="#factors-in-r">Factors in R</a>
+<ul>
+<li><a href="#multiple-regression-models-in-r">Multiple regression models in R</a></li>
+<li><a href="#multiple-predictors">Multiple predictors</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#i-operator">I() operator</a></li>
+<li><a href="#factors">Factors</a></li>
+<li><a href="#example">example</a>
+<ul>
+<li><a href="#constraints">Constraints</a>
+<ul>
+<li><a href="#approach-1-zero-sum">Approach 1: zero sum</a></li>
+<li><a href="#approach-2-reference-level">Approach 2: reference level</a></li>
+</ul>
+</li>
+<li><a href="#interpretation">Interpretation</a></li>
+</ul>
+</li>
+<li><a href="#interactions">interactions</a></li>
+<li><a href="#r-example">R example</a></li>
+<li><a href="#the-operator">The + operator</a></li>
+<li><a href="#the-operator-parallel-regression">The + operator - parallel regression</a></li>
+<li><a href="#the-operator-2">The : operator</a></li>
+<li><a href="#the-operator-seprate-regression">The : operator - seprate regression</a></li>
+<li><a href="#the-operator-3">The * operator</a></li>
+<li><a href="#the-operator-4">The ^ operator</a></li>
+<li><a href="#the-operator-5">The - operator</a></li>
+<li><a href="#the-operator-6">The / operator</a></li>
+<li><a href="#example-2">Example</a></li>
+</ul>
+</li>
+<li><a href="#poison-example">Poison example</a>
+<ul>
+<li><a href="#different-design-matrix">Different design matrix</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#week4">Week4</a>
+<ul>
+<li><a href="#marginality">Marginality</a>
+<ul>
+<li><a href="#the-marginality-principle">The marginality principle</a>
+<ul>
+<li><a href="#example-3">Example</a></li>
+<li><a href="#why-need-marginality-principle">Why need marginality principle?</a></li>
+<li><a href="#the-marginality-principle-in-r">The marginality principle in R</a>
+<ul>
+<li><a href="#example-4">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#models-with-factors-and-covariates">Models with factors and covariates</a></li>
+<li><a href="#polynomial-regressions">Polynomial regressions</a></li>
+<li><a href="#example-5">example</a></li>
+</ul>
+</li>
+<li><a href="#assumption-checking">Assumption Checking</a>
+<ul>
+<li><a href="#why-assumption-checking">Why assumption checking</a></li>
+<li><a href="#regression-assumptions">Regression Assumptions</a></li>
+<li><a href="#residuals">Residuals</a></li>
+<li><a href="#distribution-of-residuals">Distribution of Residuals</a></li>
+<li><a href="#example-6">Example</a></li>
+<li><a href="#standardized-residuals">Standardized Residuals</a></li>
+<li><a href="#studentized-residuals">Studentized Residuals</a></li>
+<li><a href="#model-checking-with-residuals">Model checking with residuals</a></li>
+</ul>
+</li>
+<li><a href="#influence-diagnostics">influence diagnostics</a>
+<ul>
+<li><a href="#influence">Influence</a></li>
+<li><a href="#large-residual-high-leverage-high-influence">Large residual, high leverage, high influence</a></li>
+<li><a href="#large-residual-low-leverage-low-influence">Large residual, low leverage, low influence</a></li>
+<li><a href="#small-residual-high-leverage-low-influence">Small residual, high leverage, low influence</a></li>
+<li><a href="#small-residual-low-leverage-low-influence">Small residual, low leverage, low influence</a></li>
+<li><a href="#influence-and-leverage">Influence and leverage</a></li>
+<li><a href="#leverage-of-data-point">leverage of data point</a></li>
+<li><a href="#leverage-of-linear-regression">leverage of linear regression</a></li>
+<li><a href="#average-value-of-leverage">average value of leverage</a></li>
+<li><a href="#leverage-info">leverage info</a></li>
+<li><a href="#leverage-example">leverage example</a></li>
+<li><a href="#cooks-distanceuse-to-measure-influence">Cook's Distance(use to measure influence)</a>
+<ul>
+<li><a href="#plotting-cooks-distance">Plotting Cook's distance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#case-study-cheese">Case study - Cheese</a></li>
+</ul>
+</li>
+<li><a href="#week5">Week5</a>
+<ul>
+<li><a href="#gls">GLS</a>
+<ul>
+<li><a href="#generalised-least-squares">Generalised least squares</a>
+<ul>
+<li><a href="#symmetry">Symmetry</a></li>
+<li><a href="#positive-definite">Positive definite</a></li>
+<li><a href="#variance-matrices-are-non-negative-definite">Variance matrices are non-negative definite</a></li>
+</ul>
+</li>
+<li><a href="#ordinary-least-squares">Ordinary least squares</a></li>
+<li><a href="#squaer-root-matrices">Squaer-root matrices</a></li>
+<li><a href="#generalised-least-squares-2">Generalised least squares</a></li>
+<li><a href="#weighted-least-squares">Weighted least squares</a>
+<ul>
+<li><a href="#example-7">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#box-cox">Box-Cox</a>
+<ul>
+<li><a href="#transformations">Transformations</a></li>
+<li><a href="#the-box-cox-transformations">The Box-Cox transformations</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#the-profile-likelihood">The profile likelihood</a></li>
+<li><a href="#case-studyexample-of-box-cox">Case study(example of  box-cox)</a>
+<ul>
+<li><a href="#box-cox-2">Box-Cox</a></li>
+<li><a href="#change-to-log">Change to log</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#week6">Week6</a>
+<ul>
+<li><a href="#lrlogistic-regression">LR(logistic regression)</a>
+<ul>
+<li><a href="#the-binomial-model">THe binomial model</a></li>
+<li><a href="#linear-model-for-the-probability">Linear model for the probability</a></li>
+<li><a href="#the-logistic-regression-model">The logistic regression model</a></li>
+<li><a href="#properties-of-the-logit-transformation">Properties of the logit transformation</a></li>
+<li><a href="#the-logistic-curve">The logistic curve</a></li>
+<li><a href="#bettle-example">Bettle example</a></li>
+<li><a href="#no-additive-error">No additive error</a></li>
+<li><a href="#bettle-case-study">Bettle case study</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#week-7">Week 7</a>
+<ul>
+<li><a href="#mle">MLE</a>
+<ul>
+<li><a href="#estimation">Estimation</a></li>
+<li><a href="#maximum-likelihood-for-vector-form">Maximum likelihood for vector form</a></li>
+<li><a href="#the-log-likelihood-function">The log-likelihood function</a>
+<ul>
+<li><a href="#the-maximum-likelihodo-equations">The maximum likelihodo equations</a></li>
+</ul>
+</li>
+<li><a href="#the-information-matrix">The information matrix</a></li>
+<li><a href="#newton-raphson-algorithm">Newton-Raphson algorithm</a></li>
+<li><a href="#fisher-scoring">Fisher Scoring</a></li>
+<li><a href="#initial-value">Initial value</a></li>
+</ul>
+</li>
+<li><a href="#inference">Inference</a>
+<ul>
+<li><a href="#inference-for-regression-coefficients">Inference for regression coefficients</a></li>
+<li><a href="#confidence-interval">Confidence interval</a></li>
+<li><a href="#hypotheses-concerning-several-parameters">Hypotheses concerning several parameters</a></li>
+<li><a href="#deviance-statistic">Deviance statistic</a></li>
+<li><a href="#model-fit">Model fit</a>
+<ul>
+<li><a href="#formal-approach">Formal approach</a></li>
+<li><a href="#less-formal-approach">Less formal approach</a></li>
+</ul>
+</li>
+<li><a href="#pearson-residual">pearson residual</a></li>
+<li><a href="#deviance-residual">deviance residual</a></li>
+<li><a href="#residual">residual</a></li>
+<li><a href="#non-grouped-data-residuals">Non-grouped data residuals</a></li>
+<li><a href="#over-dispersion">Over-dispersion</a>
+<ul>
+<li><a href="#case-study-2">Case study</a></li>
+</ul>
+</li>
+<li><a href="#existence-of-mle">Existence of MLE</a></li>
+<li><a href="#warning-signs-for-logistic-regression">Warning signs for logistic regression</a></li>
+</ul>
+</li>
+<li><a href="#case-study-beetle">Case study beetle</a></li>
+<li><a href="#cells-example">Cells example</a></li>
+<li><a href="#fisher-score-implement-in-r">Fisher score implement in R</a>
+<ul>
+<li><a href="#find-x">Find X</a></li>
+<li><a href="#find-beta0">Find <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>β</mi><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">\beta^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span></a></li>
+<li><a href="#find-betat1-text-given-betat">Find <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>β</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msup><mtext> given </mtext><msup><mi>β</mi><mi>t</mi></msup></mrow><annotation encoding="application/x-tex">\beta^{t+1} \text{ given } \beta^t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mord text"><span class="mord"> given </span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7935559999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span></span></span></span></span></span></span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#week-8">Week 8</a>
+<ul>
+<li><a href="#stratification">Stratification</a>
+<ul>
+<li><a href="#common-odds-ratios-for-several-2-times-2-tables">Common odds ratios for several  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2 \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> tables</a></li>
+<li><a href="#example-for-uc_berkeley-data-set">Example for UC_Berkeley data set</a></li>
+<li><a href="#odds-ratios">Odds ratios</a></li>
+<li><a href="#the-common-odds-ratio-model">The common odds ratio model</a>
+<ul>
+<li><a href="#simpsons-paradox">Simpson's Paradox</a></li>
+</ul>
+</li>
+<li><a href="#proportion-plot">Proportion plot</a></li>
+<li><a href="#prospective-and-retrospective-studies">Prospective and retrospective studies</a></li>
+<li><a href="#retrospective-studies">Retrospective studies</a></li>
+<li><a href="#analysis-for-retrospective-studies">Analysis for retrospective studies</a></li>
+<li><a href="#logistic-regression-and-retrospective-studies">Logistic regression and retrospective studies</a></li>
+<li><a href="#example-8">Example</a></li>
+</ul>
+</li>
+<li><a href="#generalised-linear-models-summary">Generalised linear models summary</a></li>
+<li><a href="#week-9">Week 9</a>
+<ul>
+<li><a href="#poisson-regression">Poisson regression</a>
+<ul>
+<li><a href="#poisson-data">Poisson data</a></li>
+<li><a href="#poisson-regression-models">Poisson Regression models</a></li>
+<li><a href="#log-linera-models">Log-linera Models</a></li>
+<li><a href="#fitting-in-r">Fitting in r</a></li>
+<li><a href="#interpretation-of-coefficients">Interpretation of coefficients</a>
+<ul>
+<li><a href="#example-9">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#poisson-rate-regression">Poisson rate regression</a></li>
+<li><a href="#case-study-roadkill-poisson-regression">Case study- Roadkill (poisson regression)</a>
+<ul>
+<li><a href="#update-model">Update model</a></li>
+</ul>
+</li>
+<li><a href="#poisson-rate-regression-case-study">Poisson rate regression case study</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#week-10">Week 10</a>
+<ul>
+<li><a href="#leprosy-example">Leprosy example</a></li>
+<li><a href="#fev">FEV</a></li>
+</ul>
+</li>
+<li><a href="#week-11">Week 11</a>
+<ul>
+<li><a href="#model-selection">Model selection</a>
+<ul>
+<li><a href="#model-selection-2">Model selection</a>
+<ul>
+<li><a href="#the-forward-selection-algorithm-with-p-values">The forward selection algorithm with P-values</a></li>
+<li><a href="#the-backwards-elimination-algorithm-with-p-values">The backwards elimination algorithm with P-values</a></li>
+<li><a href="#the-stepwise-selection-procedure-with-p-values">The stepwise selection procedure with P-values</a></li>
+<li><a href="#principle-of-marginality">Principle of marginality</a></li>
+</ul>
+</li>
+<li><a href="#measures">Measures</a>
+<ul>
+<li><a href="#root-mean-square-errorrmse">Root mean square error(RMSE)</a></li>
+<li><a href="#r-squared">R-squared</a></li>
+<li><a href="#mean-absolute-errormae">Mean absolute error(MAE)</a></li>
+<li><a href="#adjusted-r2">Adjusted <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>R</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">R^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></a></li>
+<li><a href="#c_p"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">C_p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></a></li>
+<li><a href="#residuals-summar-squared">Residuals summar squared</a></li>
+<li><a href="#mallows-c_p">Mallow's <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">C_p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></a></li>
+<li><a href="#aic">AIC</a></li>
+<li><a href="#akaike-information-criterion-corrected-aicc">Akaike information criterion corrected (AICc)</a></li>
+<li><a href="#bic">BIC</a></li>
+</ul>
+</li>
+<li><a href="#cross-validation">Cross validation</a>
+<ul>
+<li><a href="#notation-2">Notation</a></li>
+<li><a href="#prediction-error">Prediction error</a></li>
+</ul>
+</li>
+<li><a href="#ridge-regression">Ridge regression</a>
+<ul>
+<li><a href="#the-complexity-parameter-lambda">The complexity parameter <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>λ</mi></mrow><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">λ</span></span></span></span></a></li>
+<li><a href="#dealing-with-the-intercept-term">Dealing with the intercept term</a></li>
+<li><a href="#ridge-regression-for-centred-data">Ridge regression for centred data</a></li>
+<li><a href="#scaling">Scaling</a></li>
+<li><a href="#model-complexity">Model complexity</a></li>
+</ul>
+</li>
+<li><a href="#mpg-case-study">Mpg case study</a>
+<ul>
+<li><a href="#backwards">Backwards</a></li>
+<li><a href="#backwards-using-aic">Backwards using AIC</a></li>
+<li><a href="#forwards-using-aic">Forwards using AIC</a></li>
+<li><a href="#both">Both</a></li>
+<li><a href="#rmse">RMSE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#week-12">Week 12</a>
+<ul>
+<li><a href="#the-geometry-of-least-squares">The Geometry of Least Squares</a>
+<ul>
+<li><a href="#overview-2">Overview</a></li>
+<li><a href="#subspace">Subspace</a></li>
+<li><a href="#vector-subspaces">Vector subspaces</a></li>
+<li><a href="#span">Span</a></li>
+<li><a href="#basis">Basis</a></li>
+<li><a href="#alternative-bases">Alternative Bases</a></li>
+<li><a href="#dimension-of-a-subspace">Dimension of a subspace</a></li>
+<li><a href="#linear-models">Linear Models</a></li>
+<li><a href="#the-projection-matrix">The projection matrix</a></li>
+<li><a href="#the-orthogonal-complement">The Orthogonal Complement</a></li>
+<li><a href="#orthogonal-projection">Orthogonal Projection</a></li>
+<li><a href="#the-least-squares-property">The least squares property</a></li>
+<li><a href="#the-normal-equation">The normal equation</a></li>
+<li><a href="#symmetry-and-idempotence">Symmetry and Idempotence</a></li>
+<li><a href="#the-matrix-formulation">The matrix formulation</a></li>
+<li><a href="#test-of-hypotheses-and-anova">Test of Hypotheses and ANOVA</a></li>
+<li><a href="#the-expected-mean-squares">The expected mean squares</a></li>
+<li><a href="#the-f-statistic">The F-statistic</a></li>
+<li><a href="#geometry-of-generalised-least-squares">Geometry of generalised least squares</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hiakkaoyri1220.com/post/bayes-test-and-assignment/">
+              <h3 class="post-title">
+                bayes test and assignment
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://hiakkaoyri1220.com/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

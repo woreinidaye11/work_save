@@ -1,0 +1,548 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>bayes prac | hiakriggg</title>
+<link rel="shortcut icon" href="https://hiakkaoyri1220.com/favicon.ico?v=1718864303971">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://hiakkaoyri1220.com/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="bayes prac | hiakriggg - Atom Feed" href="https://hiakkaoyri1220.com/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="Practical 1
+study of visitors to Belair National park in July 2019 found that 33018 South Australian visitors booked
+a t..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hiakkaoyri1220.com">
+  <img class="avatar" src="https://hiakkaoyri1220.com/images/avatar.png?v=1718864303971" alt="">
+  </a>
+  <h1 class="site-title">
+    hiakriggg
+  </h1>
+  <p class="site-description">
+    ak+q upupup
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://hiakkaoyri1220.com/post/bayes" class="menu">
+          node
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              bayes prac
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-07-29
+              </span>
+              <span>
+                16 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h2 id="practical-1">Practical 1</h2>
+<p>study of visitors to Belair National park in July 2019 found that 33018 South Australian visitors booked<br>
+a ticket. In the same month, 1205 mobile signals from South Australians were detected in the park.<br>
+Assume that the bookings, n = 33018, were the total number of visitors. Treat y = 1205 as the number of<br>
+successes. Your model is the Beta prior with binomial likelihood:</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>(</mo><mi>θ</mi><mo>)</mo><mo>∝</mo><msup><mi>θ</mi><mrow><mi mathvariant="normal">ℵ</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>(</mo><mn>1</mn><mo>−</mo><mi>θ</mi><msup><mo>)</mo><mrow><mi>β</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">P(\theta) \propto \theta^{\aleph-1}(1-\theta)^{\beta-1}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∝</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.149108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">ℵ</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.149108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05278em;">β</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>and</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>(</mo><mi>y</mi><mo>∣</mo><mi>θ</mi><mo>)</mo><mo>∝</mo><msup><mi>θ</mi><mi>y</mi></msup><mo>(</mo><mn>1</mn><mo>−</mo><mi>θ</mi><msup><mo>)</mo><mrow><mi>n</mi><mo>−</mo><mi>y</mi></mrow></msup></mrow><annotation encoding="application/x-tex">P(y \mid \theta) \propto \theta^{y}(1-\theta)^{n-y}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∝</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.714392em;"><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.071331em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.821331em;"><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>Compute un-normalised posteriors and then normalise them<br>
+Note: you know or at least can calculate the posterior distribution for this problem. Please don’t do so yet.</p>
+<ol>
+<li>Write code that saves the values of alpha, beta, n and y as constants. Discretise theta: represent<br>
+it by at least 100 points between 0 and 1 (e.g. by using seq()). Calculate the product of the prior<br>
+and likelihood, using my functions above for each. This is an (un-normalised) posterior. What is the<br>
+maximum value that it takes?</li>
+</ol>
+<pre><code>alpha &lt;- 1
+beta &lt;- 1
+n &lt;- 33018
+y &lt;- 1205
+theta &lt;- seq(0,1,by=0.01)
+prior &lt;- thetaˆ(alpha-1) * (1-theta)ˆ(beta-1) # or dbeta(theta, alpha, beta)
+likelihood &lt;- thetaˆy * (1-theta)ˆ(n-y)
+#note dbinom(y,n,theta) does not work with vector theta input
+posterior &lt;- prior*likelihood
+df &lt;- tibble(theta,prior,likelihood,posterior)
+ggplot(df,aes(theta,posterior))+ geom_line()
+</code></pre>
+<h3 id="work-with-the-conjugate-prior">Work with the conjugate prior</h3>
+<p>For the example of this prac, the posterior is<br>
+θ|y ∼ Beta(α + y, β + n − y) .</p>
+<p class='katex-block katex-error' title='ParseError: KaTeX parse error: Undefined control sequence: \belong at position 13: \theta \mid \̲b̲e̲l̲o̲n̲g̲
+̲'>\theta \mid \belong
+</p>
+<ol>
+<li>Using an appropriate function (dbeta in R), compute the posterior pdf on your theta.</li>
+</ol>
+<pre><code>posterior_conj &lt;- dbeta(theta,alpha+y, beta+n-y)
+df &lt;- df %&gt;% add_column(posterior_conj)
+df %&gt;% pivot_longer(-theta) %&gt;% ggplot(aes(theta,value,color=name)) + geom_line()
+</code></pre>
+<h2 id="practical-2">Practical 2</h2>
+<h3 id="拒绝采样">拒绝采样</h3>
+<p>对于一个难以采样的后验分布，我们可以通过给定一个目标 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><mi>θ</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">g(\theta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span>,使得目标分布能够包含分布<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>θ</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(\theta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span> 并找到 最好的<em>k</em>使得 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi><mo>∗</mo><mi>p</mi><mi>o</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>o</mi><mi>r</mi><mi mathvariant="normal">/</mi><mi>p</mi><mi>r</mi><mi>o</mi><mi>p</mi><mi>o</mi><mi>s</mi><mi>a</mi><mi>l</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">K * posterior / proposal &lt; 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">i</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord">/</span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">o</span><span class="mord mathdefault">p</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>， 一般来讲 proposal  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><mi>θ</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">g(\theta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span>都会采取均匀分布<br>
+<img src="https://hiakkaoyri1220.com/post-images/1692964144510.png" alt="" loading="lazy"><br>
+随机生成x坐标，然后求出概率 (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi><mo>∗</mo><mi>f</mi><mo>(</mo><mi>θ</mi><mo>)</mo><mi mathvariant="normal">/</mi><mi>g</mi><mo>(</mo><mi>θ</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">K*f(\theta) / g(\theta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span>)-&gt; 后验的分布函数值，最后基于x坐标上随机生成y坐标，若当前y坐标小于后验的分布函数值，则接受。<br>
+Generates 100000 random number in the range of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mn>1.5</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">[-1,1.5]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">5</span><span class="mclose">]</span></span></span></span><br>
+<code>runif(100000,-1,1.5)</code><br>
+95% CI<br>
+<code>quantile(accepted_samples,c(0.025,0.975)) #95% CI for mu</code></p>
+<h3 id="reject-sampling-code-and-link">Reject sampling code and link</h3>
+<p><a href="https://gaolei786.github.io/statistics/reject.html">introduction</a></p>
+<pre><code>pacman::p_load(
+  tidyverse,
+  tidymodels,
+  vip
+)
+football &lt;-read_delim(here::here(&quot;data&quot;,&quot;football.txt&quot;))
+football
+
+new_football &lt;-
+  football%&gt;%
+  transmute(diff =favorite-underdog-spread)
+
+new_football
+#oo &lt;-
+  #new_football%&gt;%
+summ&lt;-summarise(new_football,mean = mean(diff),s.d = sd(diff))
+new_football%&gt;%
+  ggplot(aes(diff))+
+  geom_histogram()
+
+N &lt;- 100000 #number of samples from proposal
+mu_proposals &lt;- runif(N,-1,1.5)#started with wide bounds for the proposals, then narrowed them
+n&lt;-nrow(new_football)
+x_bar&lt;-summ$mean
+sigma&lt;-13.7
+#At this stage we need K such that Kf (x)/g(x) ≤ 1 for all x. Here f (x) is the posterior, and g(x) is the
+#proposal.
+#Let me sub in the functions and write that out as a very similar problem.
+#̃K exp
+#[
+#  − (mu_proposals −  ̄x)2
+#  2σ2/n
+#]
+#≤ 1.
+#I need to find  ̃K such that the above line is true. You might be confused - what is  ̃K? Answer: I absorbed
+#all of the normalising constants for the functions f (x) and g(x) into K. This is the step that I imagine takes
+#everyone off guard.
+#Try saying the following: if there is a  ̃K satisfying the second equation, then there is a K satisfying the first
+#equation. The only difference between the two is the normalising constants for f (x) and g(x). But, to use
+#the algorithm I only need to know Kf (x)/g(x), and that is the same thing as
+#̃K exp
+#[
+#  − (mu_proposals −  ̄x)2
+ # 2σ2/n
+#]
+#.
+#Now we identify  ̃K: since the left-hand-side of the inequality is e−a2
+#, it already is ≤ 1 and I can choose
+#̃K = 1. Compute Kf (x)/g(x) for each sample.
+
+# compute K*f/g
+Kfgs &lt;- exp(-(mu_proposals-x_bar)^2/(2*sigma^2/n))
+probs &lt;- runif(N)
+accepted_samples &lt;- mu_proposals[probs &lt; Kfgs]
+length(accepted_samples)/N # We accept about 30% of samples
+#4. Formally we require g(μ) &gt; 0 whenever f (μ) &gt; 0. Is this assumption satisfied? Is there a problem?
+#  Solutions:
+#  No - the posterior is formally supported on μ ∈ R but the proposal has defined lower and upper bounds.
+#However, not a practical problem. If the lower bound for the proposal density is larger than 1, or if the
+#upper bound for the proposal density is smaller than about 1.5, then you may cut off significant parts of the
+#posterior (try it). As long as your proposal is supported on at least [-1,1.5], you get well over 99% of the
+#posterior mass.
+
+accepted_samples %&gt;% as_tibble() %&gt;% ggplot(aes(accepted_samples, y=..density..)) + geom_histogram()
+quantile(accepted_samples,c(0.025,0.975)) #95% CI for mu
+</code></pre>
+<p>filter the wanted information and change date to year only<br>
+<code>ad_temp &lt;- temperature %&gt;% filter(city_name==&quot;PORT&quot; &amp; date &gt; &quot;2004-12-31&quot; &amp; date &lt; &quot;2015-01-01&quot;) ad_temp &lt;- ad_temp %&gt;% mutate( date = year(date)) #save the date as year only</code><br>
+group by date and get the mean within valid date<br>
+remove missing value by using na.rm =TRUE<br>
+<code>tem1&lt;-   tem%&gt;%   group_by(date)%&gt;%   summarise(Mean = mean(temperature, na.rm=TRUE))</code><br>
+generate 1 iid value with corrsponde mean and sd<br>
+<code>rnorm(1 , mu_mn, mu_sd(mu_sigma[i-1,2])</code></p>
+<h1 id="week3-gibbs-sampler">Week3 gibbs sampler</h1>
+<p>吉布斯采样：对于一个难以采样的联合分布函数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">P(x,y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>，假设它的条件函数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>(</mo><mi>x</mi><mo>∣</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">P(x \mid y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>和<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>(</mo><mi>y</mi><mo>∣</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">P(y \mid x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>能够轻易采样,则我们可以通过交替条件来进行采样.这意味着相应的变量会在迭代的过程中交替使用.</p>
+<h3 id="procedure">procedure</h3>
+<p>给定一个难以采样的联合后验分布,我们希望通过gibse sampler来为我们进行采样</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>(</mo><mi>x</mi><mo>∣</mo><msub><mi>θ</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>θ</mi><mn>2</mn></msub><mo>)</mo><mo>∝</mo><msubsup><mi>θ</mi><mn>1</mn><mi>x</mi></msubsup><mo>(</mo><mn>1</mn><mo>−</mo><msub><mi>θ</mi><mn>1</mn></msub><msup><mo>)</mo><mrow><mn>100</mn><mo>−</mo><mi>x</mi></mrow></msup><msubsup><mi>θ</mi><mn>2</mn><mi>x</mi></msubsup><msup><mi>exp</mi><mo>⁡</mo><mrow><mo>−</mo><msub><mi>θ</mi><mn>2</mn></msub></mrow></msup></mrow><annotation encoding="application/x-tex">p(x \mid \theta_1,\theta_2) \propto \theta_1^x(1-\theta_1)^{100-x}\theta_2^x \exp^{-\theta_2} 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∝</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7143919999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.149108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.864108em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">0</span><span class="mord mtight">0</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight">x</span></span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7143919999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">exp</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.899108em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31731428571428577em;"><span style="top:-2.357em;margin-left:-0.02778em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>假设我们已知他们的条件分布函数为</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>θ</mi><mn>1</mn></msub><mo>∣</mo><mi>x</mi><mo>∼</mo><mi>B</mi><mi>e</mi><mi>t</mi><mi>a</mi><mo>(</mo><mn>2</mn><mo>+</mo><mi>x</mi><mo separator="true">,</mo><mn>103</mn><mo>−</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\theta_1 \mid x \sim Beta(2+x,103-x)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mopen">(</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>θ</mi><mn>2</mn></msub><mo>∣</mo><mi>x</mi><mo>∼</mo><mi mathvariant="normal">Γ</mi><mo>(</mo><mi>x</mi><mo>+</mo><mn>0.5</mn><mo separator="true">,</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">\theta_2 \mid x \sim \Gamma(x+0.5,1)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Γ</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">5</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span></span></p>
+<p>则我们可以通过对10000个样本进行采样,并给<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>X</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">X_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>设置一个随机初值,以观测值<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>X</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">X_{i-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span></span></span></span>作为条件从而推断出后验分布。</p>
+<pre><code>N &lt;- 10000 #how many samples to take
+thetas=matrix(1,nrow=N,ncol=2) #initialise matrix to save our output. This is a good step philosophicall
+for(i in 2:N){
+thetas[i,1]=rbeta(1, 2+data, 103-data )
+thetas[i,2]=rgamma(1,data+0.5,1)
+}
+</code></pre>
+<h3 id="example">example</h3>
+<p>需要注意的是有的条件函数可能会基于当前时间的另外一个参数<br>
+<img src="https://hiakkaoyri1220.com/post-images/1693027239255.png" alt="" loading="lazy"></p>
+<pre><code>rho=0.75 #correlation
+#initialise matrix for samples
+theta=matrix(0,nrow=200,ncol=2)
+#sample from conditional distributions
+for(i in 2:200){
+#sample time i, component 1 using time i-1, component 2
+theta[i,1]=rnorm(1,rho*theta[i-1,2],sqrt(1-rhoˆ2))
+#sample time i, component 2 using i,1
+theta[i,2]=rnorm(1,rho*theta[i,1],sqrt(1-rhoˆ2))
+}
+</code></pre>
+<h3 id="问题1">问题1</h3>
+<p>对于 MCMC, 我们给马尔科夫链所假设的初值不一定是正确的.尽管最后的数据会趋于收敛.但丢掉一些马尔可夫链的初始步骤可以消除所谓的“磨合期”，即链中有不成比例的许多样本<br>
+低概率区域</p>
+<h3 id="问题2">问题2</h3>
+<p>如果我们的样本长时间保持相关性，那么看起来像许多样本(100多个)，<br>
+实际上可能相当于更少的不相关样本</p>
+<h3 id="对于相关性的plot">对于相关性的plot</h3>
+<pre><code>pacman::p_load(bayesforecast) #contains a ggplot style acf
+ggacf(mu_sigma) #formatted as a matrix:
+</code></pre>
+<h1 id="week-4-metropolis-hastings-algorithm">Week 4 Metropolis-Hastings algorithm</h1>
+<p>When implementing M-H, you need to to know</p>
+<ol>
+<li>the posterior density/mass function up to some proportionality constant.</li>
+<li>to have a proposal distribution in mind to move around samples of the posterior variables</li>
+</ol>
+<h3 id="the-second-point-breaks-down-as-follows">The second point breaks down as follows:</h3>
+<ol>
+<li>Choose a rule to move your samples around. I will be estimating variables <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">μ</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\sigma^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>. let <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>θ</mi><mo>(</mo></msup><mi>t</mi><mo>)</mo><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\theta^(t) \in \mathbb{R^2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mopen mtight">(</span></span></span></span></span></span></span></span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span> be the t-th sample of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>μ</mi><mo separator="true">,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">(\mu,\sigma^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">μ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>: will use the proposal <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>θ</mi><mrow><mo>(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow></msup><mo>∣</mo><msup><mi>θ</mi><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></msup><mo>∼</mo><mi>N</mi><mo>(</mo><msup><mi>θ</mi><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></msup><mo separator="true">,</mo><mi>c</mi><mi>I</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\theta^{(t+1)} \mid \theta^{(t)} \sim N(\theta^{(t)},cI)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">t</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">t</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mclose">)</span></span></span></span> for some constant c.</li>
+<li>write a function to take one sample of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>θ</mi><mrow><mo>(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\theta^{(t+1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span> given an input <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>θ</mi><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\theta^{(t)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">t</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>.</li>
+</ol>
+<pre><code>prop_sd &lt;- c(0.1,0.04) #These sds are ad hoc and must be tuned. 
+# Once you understand the file, change these numbers and look at the acf plots!
+
+#sample once for mu and once for sigma.
+sample_proposal &lt;- function(sample){
+  rnorm(2,mean=sample,sd=prop_sd)
+} 
+</code></pre>
+<ol start="3">
+<li>Write a function to evaluate the proposal density function <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>(</mo><msup><mi>θ</mi><mrow><mo>(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow></msup><mo>∣</mo><msup><mi>θ</mi><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">p(\theta^{(t+1)} \mid \theta^{(t)})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">t</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> at a location given by proposal <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msup><mi>θ</mi><mi mathvariant="normal">∗</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">(\theta^∗)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>, given an input sample <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msup><mi>θ</mi><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">(\theta^{(t)})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">t</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>.</li>
+</ol>
+<pre><code>prop_dens &lt;- function(sample, proposal){
+  prod(dnorm(proposal, mean=sample, sd=prop_sd))
+  #above dnorm(...) calculates the density of the two gaussian proposal distributions
+  #that is, for mu and for sig2
+  #prod(dnorm(...)) finds the density of the proposal as a whole
+} 
+</code></pre>
+<p>总结：对于Metropolis-Hastings算法</p>
+<ol>
+<li>我们先需要计算出我们的后验分布函数(包括忽略不必要的常数)</li>
+<li>构造一个提议分布来移动后验变量的样本</li>
+</ol>
+<blockquote>
+<ul>
+<li>对于提议分布,第一步我们需要先确定它移动的规则,并创建一个函数去取取<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>θ</mi><mrow><mo>(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\theta^{(t+1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>的一个样本</li>
+<li>给定输入<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>θ</mi><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\theta^{(t)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">t</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span> (也就是创建马尔科夫链,并使用随机生成分布函数(r开头的)去生成马尔科夫链)</li>
+<li>创捷一个函数能够去评估提议密度函数,即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>(</mo><msup><mi>θ</mi><mrow><mo>(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow></msup><mo>∣</mo><msup><mi>θ</mi><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">p(\theta^{(t+1)} \mid \theta^{(t)})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">t</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 在提案<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msup><mi>θ</mi><mi mathvariant="normal">∗</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">(\theta^∗)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>给出的位置，给定输入示例<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msup><mi>θ</mi><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">(\theta^{(t)})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">t</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>处理数据</li>
+<li>选定合适的先验值,并计算出<em><strong>似然,先验分布和后验分布</strong></em></li>
+<li>初始化矩阵</li>
+<li>跑下面的板子</li>
+<li>去除burn-in problem(也就是说要选定一个区间[1,???],去除里面的数据,并检查相关性.</li>
+</ol>
+<h2 id="code-for-metropolis-hastings">Code for Metropolis-Hastings</h2>
+<p>generic code for Metropolis-Hastings.</p>
+<pre><code>for(i in 2:N){
+  #sample from proposal
+  proposal &lt;- sample_proposal(samples[i-1,])
+  
+  #compute probability - possible to get Inf or NaN
+  r &lt;- (post_exact( proposal ) /
+    post_exact( samples[i-1,] )) *
+    (prop_dens( proposal, samples[i-1,] ) /
+    prop_dens( samples[i-1,], proposal ))
+  
+  # Possible to get NaNs, e.g. if the proposal is a negative variance. 
+  r[is.nan(r)]=0 #reject. 
+  
+  #accept or reject step
+  prob &lt;- runif(1,0,1)
+  if( prob&lt;r ){ #then accept
+    samples[i,] = proposal
+    n_accept &lt;- n_accept+1
+  } else {
+    samples[i,] = samples[i-1,]
+  } #end else
+} #end for loop
+
+#report the percent of accepted steps
+percent_accept &lt;- 100*n_accept/N
+percent_accept
+</code></pre>
+<h2 id="part-one-beta-binomial">Part One: Beta-Binomial</h2>
+<p>In this part you connect Metropolis-Hastings output to your standard Bayesian conjugate priors.</p>
+<h3 id="problem">Problem</h3>
+<p>When recording the sex of babies born in Paris between 1745 and 1770, a total of 241,945 girls and 251,527<br>
+boys were recorded. Laplace concluded that he was ‘morally certain’ that the probability <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span> of birth sex being<br>
+female was less than 0.5.<br>
+Can you do any better?</p>
+<ol>
+<li>Formulate a binomial likelihood - what is n and what is x?<br>
+n is the total number of people, 493472, while x is 241945.</li>
+<li>Write down a prior. If you are feeling fancy, use the Fisher information in the binomial distribution to obtain the Jeffreys prior.<br>
+Fisher information for the binomial distribution is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi mathvariant="normal">/</mi><mo>(</mo><mi>θ</mi><mo>(</mo><mn>1</mn><mi mathvariant="normal">−</mi><mi>θ</mi><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">n/(\theta(1 − \theta))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mopen">(</span><span class="mord">1</span><span class="mord">−</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span>, so the Jeffreys prior is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>(</mo><mi>θ</mi><mo>)</mo><mo>∝</mo><msup><mi>θ</mi><mrow><mo>−</mo><mn>1</mn><mi mathvariant="normal">/</mi><mn>2</mn></mrow></msup><mo>(</mo><mn>1</mn><mo>−</mo><mi>θ</mi><msup><mo>)</mo><mrow><mo>−</mo><mn>1</mn><mi mathvariant="normal">/</mi><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">p(\theta) \propto \theta^{-1/2}(1-\theta)^{-1/2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∝</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span><span class="mord mtight">/</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span><span class="mord mtight">/</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></li>
+<li>Write a function, log_post, to compute the log of the posterior up to a constant.<br>
+对后验分布进行log化</li>
+</ol>
+<pre><code>x &lt;- 241945
+n &lt;- x + 251527
+log_post &lt;- function(theta){
+(x-1/2)*log(theta) + (n-x-1/2)*log(1-theta)
+}
+</code></pre>
+<ol start="4">
+<li>Implement Metropolis-Hastings to get samples from the posterior and plot a histogram. Use the following code to compute the probability <em>r</em> of keeping a sample:</li>
+</ol>
+<pre><code>#write a function to do MH:
+mh_sampler &lt;- function(
+    #inputs
+  sample_proposal, #fun to sample from proposal
+  prop_dens, #fun to evaluate proposal density
+  log_post, #fun to evaluate log(posterior)
+  initial_sample, #initial sample
+  N = 5e4, #number of samples - default to 50,000
+  burnin = 1e4 #burnin to remove - default 10,000 for safety
+){
+  #steps
+  #initialise matrix for samples
+  samples=matrix(0,nrow=N,ncol=length(initial_sample))
+  samples[1,] = initial_sample
+  n_accept &lt;- 0 #count how many proposal steps were accepted
+  # Code for Metropolis-Hastings
+  for(i in 2:N){
+    #sample from proposal
+    proposal &lt;- sample_proposal(samples[i-1,])
+    #compute probability - possible to get Inf or NaN
+    r &lt;- exp(log_post( proposal ) -
+               log_post( samples[i-1,] )) *
+      (prop_dens( proposal, samples[i-1,] ) /
+         prop_dens( samples[i-1,], proposal ))
+    # Possible to get NaNs, e.g. if the proposal is a negative variance.
+    r[is.nan(r)]=0 #reject.
+    #accept or reject step
+    prob &lt;- runif(1,0,1)
+    if( prob&lt;r ){ #then accept
+      samples[i,] = proposal
+      n_accept &lt;- n_accept+1
+    } else {
+      samples[i,] = samples[i-1,]
+    } #end else
+  } #end for loop
+  #report the percent of accepted steps
+  percent_accept &lt;- 100*n_accept/N
+  #output percent of accepted samples
+  print(paste(&quot;Percent of accepted samples: &quot;, percent_accept))
+  #remove the burn-in
+  samples_trunc &lt;- samples[-1:-burnin,]
+  #output truncated samples
+  return(samples_trunc)
+} 
+</code></pre>
+<p>5.根据题目要求设计提议样本和提议密度</p>
+<pre><code>prop_sd &lt;- 0.005
+sample_proposal &lt;- function(theta){rnorm(1,mean=theta,sd=prop_sd)}
+prop_dens &lt;- function(theta,proposal){
+dnorm(proposal, mean=theta, sd=prop_sd)
+}
+</code></pre>
+<ol start="6">
+<li>检查相关性<br>
+<code>ggacf(samples)</code></li>
+</ol>
+<h4 id="bad-correlation">bad correlation</h4>
+<figure data-type="image" tabindex="1"><img src="https://hiakkaoyri1220.com/post-images/1693117010253.png" alt="" loading="lazy"></figure>
+<h4 id="good-correlation">good correlation</h4>
+<figure data-type="image" tabindex="2"><img src="https://hiakkaoyri1220.com/post-images/1693117018258.png" alt="" loading="lazy"></figure>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#practical-1">Practical 1</a>
+<ul>
+<li><a href="#work-with-the-conjugate-prior">Work with the conjugate prior</a></li>
+</ul>
+</li>
+<li><a href="#practical-2">Practical 2</a>
+<ul>
+<li><a href="#%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B7">拒绝采样</a></li>
+<li><a href="#reject-sampling-code-and-link">Reject sampling code and link</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#week3-gibbs-sampler">Week3 gibbs sampler</a><br>
+*
+<ul>
+<li><a href="#procedure">procedure</a></li>
+<li><a href="#example">example</a></li>
+<li><a href="#%E9%97%AE%E9%A2%981">问题1</a></li>
+<li><a href="#%E9%97%AE%E9%A2%982">问题2</a></li>
+<li><a href="#%E5%AF%B9%E4%BA%8E%E7%9B%B8%E5%85%B3%E6%80%A7%E7%9A%84plot">对于相关性的plot</a></li>
+</ul>
+</li>
+<li><a href="#week-4-metropolis-hastings-algorithm">Week 4 Metropolis-Hastings algorithm</a><br>
+*
+<ul>
+<li><a href="#the-second-point-breaks-down-as-follows">The second point breaks down as follows:</a></li>
+<li><a href="#code-for-metropolis-hastings">Code for Metropolis-Hastings</a></li>
+<li><a href="#part-one-beta-binomial">Part One: Beta-Binomial</a>
+<ul>
+<li><a href="#problem">Problem</a>
+<ul>
+<li><a href="#bad-correlation">bad correlation</a></li>
+<li><a href="#good-correlation">good correlation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hiakkaoyri1220.com/post/bayes/">
+              <h3 class="post-title">
+                bayes lecture
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://hiakkaoyri1220.com/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

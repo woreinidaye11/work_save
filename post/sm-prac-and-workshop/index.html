@@ -1,0 +1,462 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>sm prac and workshop | hiakriggg</title>
+<link rel="shortcut icon" href="https://hiakkaoyri1220.com/favicon.ico?v=1718864303971">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://hiakkaoyri1220.com/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="sm prac and workshop | hiakriggg - Atom Feed" href="https://hiakkaoyri1220.com/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="P1&amp;&amp;W1
+Delim
+clams &lt;- read_delim('./data/ZuurData/Clams.txt')
+
+from tidyverse, it will infer the delimitor,e...." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hiakkaoyri1220.com">
+  <img class="avatar" src="https://hiakkaoyri1220.com/images/avatar.png?v=1718864303971" alt="">
+  </a>
+  <h1 class="site-title">
+    hiakriggg
+  </h1>
+  <p class="site-description">
+    ak+q upupup
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://hiakkaoyri1220.com/post/bayes" class="menu">
+          node
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              sm prac and workshop
+            </h2>
+            <div class="post-info">
+              <span>
+                2024-03-04
+              </span>
+              <span>
+                5 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h1 id="p1w1">P1&amp;&amp;W1</h1>
+<h3 id="delim">Delim</h3>
+<pre><code>clams &lt;- read_delim('./data/ZuurData/Clams.txt')
+</code></pre>
+<p>from tidyverse, it will infer the delimitor,e.g, the txt file all separate with 1 or 3 or 5 special character(space)</p>
+<h3 id="clean-up-name">Clean up name</h3>
+<pre><code>janitor::clean_names(clams)
+</code></pre>
+<p>convert column name into lower case</p>
+<h3 id="change-column-name-and-type">change column name and type</h3>
+<pre><code>clams &lt;- transmute(clams,
+month = as_factor(month), length, #keep these columns
+weight = afd, #rename the following columns
+log_length = lnlength,
+log_weight = lnafd
+)
+</code></pre>
+<h3 id="wrap-a-1d-sequence-of-panels-into-2d对某个变量建图">wrap a 1d sequence of panels into 2d（对某个变量建图）</h3>
+<pre><code>ggplot(clams,aes(length,weight))+geom_point()+facet_wrap(~month)
+</code></pre>
+<h3 id="use-drop1-to-see-if-the-interaction-is-significant">use <code>drop1</code> to see if the interaction is significant</h3>
+<pre><code>drop1(model_interact, test = &quot;F&quot;)
+</code></pre>
+<p>lower Pr(F) is more significant</p>
+<h3 id="increase-row-number-reduce-column-number">increase row number reduce column number</h3>
+<pre><code>pivot_longer(-c(tens,hard))
+</code></pre>
+<p>except for the variable <strong>tens and hard</strong></p>
+<h4 id="example-in-prac">Example in prac</h4>
+<figure data-type="image" tabindex="1"><img src="https://hiakkaoyri1220.com/post-images/1711089464316.png" alt="" loading="lazy"></figure>
+<h3 id="split-two-plot-base-on-name">split two plot base on name</h3>
+<figure data-type="image" tabindex="2"><img src="https://hiakkaoyri1220.com/post-images/1711089590868.png" alt="" loading="lazy"></figure>
+<h2 id="fit">fit</h2>
+<figure data-type="image" tabindex="3"><img src="https://hiakkaoyri1220.com/post-images/1711089761199.png" alt="" loading="lazy"></figure>
+<h2 id="important-assumption-checking">Important assumption checking</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1711090595094.png" alt="" loading="lazy"><br>
+The residuals are roughly randomly scattered about the zero line in the residuals versus fitted values plot, apart from slight curvature near the endpoints. The residuals versus hardness plot shows a random scatter<br>
+but the slight curvature is apparent in the residuals versus tensile strength plot. On balance, the linearity assumption is close to reasonable.</p>
+<p>The spread about the zero line appears roughly constant in all three plots indicating that the assumption of constant variance is reasonable.</p>
+<p>There is some departure from normality in the lower tail of the distribution of residuals, with more large negative residuals than expected for a normal distribution. The bulk of the data is close to normally distributed however</p>
+<p><strong>Linearity</strong> by checking the residuals vs fitted value, if it looks like random scatter point, then it is linearity<br>
+<strong>Homoscedasticity</strong> or constant variance by checking Scale-location, if it looks like some patterns like increasing or decreasing, then it is not Homoscedasticity, need to improve the model<br>
+<strong>normality of residuals</strong> by cheking normal-qq-plot, if almost all points lie on the line, then we can say it is normally distribution. outliers may indicate some question</p>
+<h3 id="predict">Predict</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1711163645723.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711163655137.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711163676858.png" alt="" loading="lazy"><br>
+confidence is the average range we will have, prediction is the individual range we will have<br>
+<img src="https://hiakkaoyri1220.com/post-images/1711163688268.png" alt="" loading="lazy"></p>
+<h3 id="solve-equation">solve equation</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1711163963361.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711163993983.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711164216609.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711164227807.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711164305504.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711164401236.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711164410480.png" alt="" loading="lazy"></p>
+<h1 id="t1">T1</h1>
+<p><img src="https://hiakkaoyri1220.com/post-images/1711087804871.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718159336856.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718159642906.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711087813700.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711087826503.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711087856465.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711087900824.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711088518649.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711088504325.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711088659705.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711088887467.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711088957777.png" alt="" loading="lazy"></p>
+<h1 id="p2">P2</h1>
+<h2 id="normal-one">normal one</h2>
+<pre><code>loan_lm1 &lt;- lm (loan_amnt ~ home_ownership,data =loan)
+</code></pre>
+<p><img src="https://hiakkaoyri1220.com/post-images/1711166628718.png" alt="" loading="lazy"><br>
+以第一个为对比，得到其他的，intercept为第一个的value</p>
+<h3 id="plot">Plot</h3>
+<pre><code>loan %&gt;%
+ggplot(aes(annual_inc,loan_amnt,col = home_ownership))+
+geom_point()+
+geom_smooth(method = lm,se = FALSE,aes(group=1))
+</code></pre>
+<h2 id="change-lm-parameters">Change lm parameters</h2>
+<pre><code>loan_lm2 &lt;- lm (loan_amnt ~ home_ownership,data =loan,contrasts = list(home_ownership = &quot;contr.sum&quot;))
+</code></pre>
+<p><img src="https://hiakkaoyri1220.com/post-images/1711166370277.png" alt="" loading="lazy"><br>
+first level 0, second level 1, last level -1<br>
+<img src="https://hiakkaoyri1220.com/post-images/1711166586916.png" alt="" loading="lazy"><br>
+以最后一个为对比，得到其他的，intercept为所有value的平均值，要得到最后一个的value要减去所有的value才可以得到（因为是-1，-1）所以是13522-3663-(-4422)</p>
+<h2 id="parallel-regerssion-with-different-intercept-same-slope">parallel regerssion with different intercept same slope</h2>
+<pre><code>loan_lm3 &lt;- lm(loan_amnt ~ home_ownership+annual_inc,data = loan)
+</code></pre>
+<p><img src="https://hiakkaoyri1220.com/post-images/1711167126013.png" alt="" loading="lazy"><br>
+slope is 0.1021<br>
+<img src="https://hiakkaoyri1220.com/post-images/1711167137187.png" alt="" loading="lazy"></p>
+<h3 id="broomaugment-get-extra-information">Broom::augment get extra information</h3>
+<h3 id="plot-2">plot</h3>
+<pre><code>broom::augment(loan_lm3) %&gt;%
+ggplot(aes(annual_inc,loan_amnt,col = home_ownership))+
+geom_point()+
+geom_line(aes(y= .fitted),size =1))
+</code></pre>
+<h2 id="separate-regerssion-with-different-intercept-and-different-slope">separate regerssion with different intercept and different slope</h2>
+<pre><code>loan_lm4 &lt;- lm(loan_amnt ~ home_ownership*annual_inc,data = loan)
+</code></pre>
+<p><img src="https://hiakkaoyri1220.com/post-images/1711167198086.png" alt="" loading="lazy"><br>
+slope<br>
+<img src="https://hiakkaoyri1220.com/post-images/1711167274851.png" alt="" loading="lazy"></p>
+<h3 id="plot-3">plot</h3>
+<pre><code>loan %&gt;%
+  ggplot(aes(annual_inc,loan_amnt,col = home_ownership))+
+  geom_point()+
+  geom_smooth(method = lm,se = FALSE)
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://hiakkaoyri1220.com/post-images/1718380862350.png" alt="" loading="lazy"></figure>
+<h2 id="which-model">Which model</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1711168097833.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1711168107905.png" alt="" loading="lazy"><br>
+anova compare the different between the model, if it is different, then parameter will appear, it p-value &gt; 0.05 than they are no differnet, pick the less one, else it is a very important model pick the more parameter one.</p>
+<h3 id="get-residuals-and-studentized-residuals">get residuals and studentized residuals</h3>
+<figure data-type="image" tabindex="5"><img src="https://hiakkaoyri1220.com/post-images/1712552535040.png" alt="" loading="lazy"></figure>
+<h2 id="t2">T2</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1713246893770.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713247445105.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713246865861.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718525902191.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713247129331.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713247776706.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713248065417.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713248119418.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718527464294.png" alt="" loading="lazy"></p>
+<h2 id="ass-1">Ass 1</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718536701626.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718536717357.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718536731640.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718536745838.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718536766388.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718536827668.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718536889164.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718536900159.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718537007394.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718537459433.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718538663377.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718538681023.png" alt="" loading="lazy"></p>
+<h2 id="p3">P3</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718560511681.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718560525875.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718560539326.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718560570961.png" alt="" loading="lazy"></p>
+<pre><code>hatvalues(hills_lm)
+</code></pre>
+<p>to get the leverage<br>
+<img src="https://hiakkaoyri1220.com/post-images/1718561837705.png" alt="" loading="lazy"><br>
+point 7 is the most influence point<br>
+<img src="https://hiakkaoyri1220.com/post-images/1718561883988.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718561915961.png" alt="" loading="lazy"></p>
+<h2 id="test-1">Test 1</h2>
+<h2 id="t3">T3</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1713349852755.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713352025157.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713352083474.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713352104599.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718611746880.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1713352155252.png" alt="" loading="lazy"></p>
+<h2 id="p4">P4</h2>
+<figure data-type="image" tabindex="6"><img src="https://hiakkaoyri1220.com/post-images/1718621625559.png" alt="" loading="lazy"></figure>
+<h3 id="get-the-residuals">Get the residuals</h3>
+<figure data-type="image" tabindex="7"><img src="https://hiakkaoyri1220.com/post-images/1718621761098.png" alt="" loading="lazy"></figure>
+<h3 id="error-bar">error bar</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1714454380762.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1714454392942.png" alt="" loading="lazy"></p>
+<h2 id="t4">T4</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718653860981.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718653873303.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718653989816.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718657130992.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718657155875.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718657166654.png" alt="" loading="lazy"></p>
+<h2 id="p5">P5</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718670116514.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718670168010.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718670182047.png" alt="" loading="lazy"><br>
+it means when we increase in age of 1 year, <strong>We multiple 0.99 for it</strong><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718670308849.png" alt="" loading="lazy"><br>
+still have curved pattern in it,<br>
+<img src="https://hiakkaoyri1220.com/post-images/1718670348743.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718670403060.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718670593699.png" alt="" loading="lazy"><br>
+If the AIC is go within 2, then we go to the smallest model. Else pick the smallest AIC model</p>
+<h2 id="t5">T5</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718693201109.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718693863402.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718714170399.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718714186596.png" alt="" loading="lazy"></p>
+<h2 id="p6">P6</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718722969054.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718729610602.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718729619735.png" alt="" loading="lazy"><br>
+find the biggest p-value and remove it<br>
+<img src="https://hiakkaoyri1220.com/post-images/1718729720700.png" alt="" loading="lazy"><br>
+for the backforward using AIC, we remove the smallest one. ,until <none> is the smallest<br>
+<img src="https://hiakkaoyri1220.com/post-images/1718729775505.png" alt="" loading="lazy"><br>
+forward using AIC<br>
+<img src="https://hiakkaoyri1220.com/post-images/1718729829758.png" alt="" loading="lazy"></p>
+<h3 id="stargazer">stargazer</h3>
+<figure data-type="image" tabindex="8"><img src="https://hiakkaoyri1220.com/post-images/1718729903093.png" alt="" loading="lazy"></figure>
+<h3 id="which-model-2">which model</h3>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718729964987.png" alt="" loading="lazy"><br>
+using cross-validation to determine which model, smaller the one we will use</p>
+<h2 id="t6">T6</h2>
+<p><img src="https://hiakkaoyri1220.com/post-images/1718732030207.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718732309270.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718732322051.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718732498801.png" alt="" loading="lazy"><br>
+<img src="https://hiakkaoyri1220.com/post-images/1718732509323.png" alt="" loading="lazy"></p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#p1w1">P1&amp;&amp;W1</a><br>
+*
+<ul>
+<li><a href="#delim">Delim</a></li>
+<li><a href="#clean-up-name">Clean up name</a></li>
+<li><a href="#change-column-name-and-type">change column name and type</a></li>
+<li><a href="#wrap-a-1d-sequence-of-panels-into-2d%E5%AF%B9%E6%9F%90%E4%B8%AA%E5%8F%98%E9%87%8F%E5%BB%BA%E5%9B%BE">wrap a 1d sequence of panels into 2d（对某个变量建图）</a></li>
+<li><a href="#use-drop1-to-see-if-the-interaction-is-significant">use <code>drop1</code> to see if the interaction is significant</a></li>
+<li><a href="#increase-row-number-reduce-column-number">increase row number reduce column number</a>
+<ul>
+<li><a href="#example-in-prac">Example in prac</a></li>
+</ul>
+</li>
+<li><a href="#split-two-plot-base-on-name">split two plot base on name</a></li>
+<li><a href="#fit">fit</a></li>
+<li><a href="#important-assumption-checking">Important assumption checking</a>
+<ul>
+<li><a href="#predict">Predict</a></li>
+<li><a href="#solve-equation">solve equation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#t1">T1</a></li>
+<li><a href="#p2">P2</a>
+<ul>
+<li><a href="#normal-one">normal one</a>
+<ul>
+<li><a href="#plot">Plot</a></li>
+</ul>
+</li>
+<li><a href="#change-lm-parameters">Change lm parameters</a></li>
+<li><a href="#parallel-regerssion-with-different-intercept-same-slope">parallel regerssion with different intercept same slope</a>
+<ul>
+<li><a href="#broomaugment-get-extra-information">Broom::augment get extra information</a></li>
+<li><a href="#plot-2">plot</a></li>
+</ul>
+</li>
+<li><a href="#separate-regerssion-with-different-intercept-and-different-slope">separate regerssion with different intercept and different slope</a>
+<ul>
+<li><a href="#plot-3">plot</a></li>
+</ul>
+</li>
+<li><a href="#which-model">Which model</a>
+<ul>
+<li><a href="#get-residuals-and-studentized-residuals">get residuals and studentized residuals</a></li>
+</ul>
+</li>
+<li><a href="#t2">T2</a></li>
+<li><a href="#ass-1">Ass 1</a></li>
+<li><a href="#p3">P3</a></li>
+<li><a href="#test-1">Test 1</a></li>
+<li><a href="#t3">T3</a></li>
+<li><a href="#p4">P4</a>
+<ul>
+<li><a href="#get-the-residuals">Get the residuals</a></li>
+<li><a href="#error-bar">error bar</a></li>
+</ul>
+</li>
+<li><a href="#t4">T4</a></li>
+<li><a href="#p5">P5</a></li>
+<li><a href="#t5">T5</a></li>
+<li><a href="#p6">P6</a>
+<ul>
+<li><a href="#stargazer">stargazer</a></li>
+<li><a href="#which-model-2">which model</a></li>
+</ul>
+</li>
+<li><a href="#t6">T6</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hiakkaoyri1220.com/post/statistical-modelling/">
+              <h3 class="post-title">
+                Statistical Modelling 
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://hiakkaoyri1220.com/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

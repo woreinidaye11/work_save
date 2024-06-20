@@ -1,0 +1,245 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>mysql base | hiakriggg</title>
+<link rel="shortcut icon" href="https://hiakkaoyri1220.com/favicon.ico?v=1718864303971">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://hiakkaoyri1220.com/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="mysql base | hiakriggg - Atom Feed" href="https://hiakkaoyri1220.com/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="create database
+CREATE DATABASE dbname;
+
+use this database
+USE DATABASE;
+
+drop database or table
+DROP DATABASE databasen..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hiakkaoyri1220.com">
+  <img class="avatar" src="https://hiakkaoyri1220.com/images/avatar.png?v=1718864303971" alt="">
+  </a>
+  <h1 class="site-title">
+    hiakriggg
+  </h1>
+  <p class="site-description">
+    ak+q upupup
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://hiakkaoyri1220.com/post/bayes" class="menu">
+          node
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              mysql base
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-09-12
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h3 id="create-database">create database</h3>
+<pre><code>CREATE DATABASE dbname;
+</code></pre>
+<h3 id="use-this-database">use this database</h3>
+<pre><code>USE DATABASE;
+</code></pre>
+<h3 id="drop-database-or-table">drop database or table</h3>
+<pre><code>DROP DATABASE databasename;
+DROP TABLE table_name;
+</code></pre>
+<h3 id="modifying-tables">Modifying tables</h3>
+<pre><code>/* Add a column */
+ALTER TABLE tablename
+ADD columnname1 datatype constraint;
+/* Change a column */
+ALTER TABLE tablename
+ALTER columnname1 newdatatype newconstraint;
+/* Delete a column */
+ALTER TABLE tablename
+DROP columnname1;
+</code></pre>
+<p>###Adding data</p>
+<pre><code>/* Okay to leave out columns */
+INSERT INTO tablename
+VALUES (value1, value2, value3);
+</code></pre>
+<h3 id="updating-data">updating data</h3>
+<pre><code>UPDATE table_name
+SET columnname = value;
+</code></pre>
+<h3 id="filtering-data-with-where">filtering data with where</h3>
+<pre><code>Use the UPDATE + WHERE to only update some rows
+UPDATE table_name
+SET columnname = value
+WHERE columnname &gt; 5;
+Use the DELETE + WHERE to only delete some rows
+DELETE FROM table_name
+WHERE columnname IS NULL;
+</code></pre>
+<pre><code>DELETE FROM table_name
+WHERE column1 &gt; 1200 AND (column2 = 'hello' OR column3 IS NOT NULL);
+</code></pre>
+<h3 id="finding-data">finding data</h3>
+<pre><code>SELCT * FROM table_name WHERE column1 IS NULL;
+</code></pre>
+<h3 id="find-data-across-table">find data across table</h3>
+<pre><code>SELECT * FROM tableA INNER JOIN tableB
+ON tableA.column1 = tableA.column2
+WHERE column3 = 'Hello';
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#create-database">create database</a></li>
+<li><a href="#use-this-database">use this database</a></li>
+<li><a href="#drop-database-or-table">drop database or table</a></li>
+<li><a href="#modifying-tables">Modifying tables</a></li>
+<li><a href="#updating-data">updating data</a></li>
+<li><a href="#filtering-data-with-where">filtering data with where</a></li>
+<li><a href="#finding-data">finding data</a></li>
+<li><a href="#find-data-across-table">find data across table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hiakkaoyri1220.com/post/useful/">
+              <h3 class="post-title">
+                useful
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://hiakkaoyri1220.com/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

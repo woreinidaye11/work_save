@@ -1,0 +1,232 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>位运算 | hiakriggg</title>
+<link rel="shortcut icon" href="https://hiakkaoyri1220.com/favicon.ico?v=1718864303971">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://hiakkaoyri1220.com/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="位运算 | hiakriggg - Atom Feed" href="https://hiakkaoyri1220.com/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="位运算知识点：
+与运算 &amp;，两个数相与不会超过当前的数,也就是说，只有相同的数相与才不会变小,否则
+越变越小
+^异或运算是有结合律的，state ^ (a1,a2,a3,...an ) = state ^ (a1a2a3^...an..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hiakkaoyri1220.com">
+  <img class="avatar" src="https://hiakkaoyri1220.com/images/avatar.png?v=1718864303971" alt="">
+  </a>
+  <h1 class="site-title">
+    hiakriggg
+  </h1>
+  <p class="site-description">
+    ak+q upupup
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://hiakkaoyri1220.com/post/bayes" class="menu">
+          node
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              位运算
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-01-11
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>位运算知识点：</p>
+<p>与运算 &amp;，两个数相与不会超过当前的数,也就是说，只有相同的数相与才不会变小,否则<br>
+越变越小</p>
+<p>^异或运算是有结合律的，state ^ (a1,a2,a3,...an ) = state ^ (a1<sup>a2</sup>a3^...an )<br>
+异或运算常用于检测一个数的出现次数（奇偶性）<br>
+或运算 |，可以使一个数变大</p>
+<p>n&gt;&gt; 1   算术右移，等于除于2并向下取整</p>
+<p>1&lt;&lt;n    算术左移 等于 2^n</p>
+<p>二进制从最右开始算，第零位在最右边</p>
+<p>(n&gt;&gt;k) &amp; 1 取出整数n在二进制的表示下的第k位<br>
+n &amp; ((1&lt;&lt;k)-1) 取出整数n在二进制的表示下的第0~k-1位（后k位）<br>
+n^ (1&lt;&lt;k)	把整数n在二进制表示下的第k位取反<br>
+n| (1&lt;&lt;k)	把整数n在二进制表示下的第k位赋值一<br>
+n&amp; (~(1&lt;&lt;k))	把整数n在二进制表示下的第k位赋值0</p>
+<p>状态压缩：<br>
+使用二进制数表示当前的位数有没有取: e.g.</p>
+<p>000001101 代表选择了第0，2，3位</p>
+<p>对于状态压缩而言，不能表示当前选择的数的顺序，详情参考acwing 94<br>
+题：  递归实现排列型枚举</p>
+<p>例题：   a^b 使用了快速幂的思想，用二进制实现<br>
+64 bit integer same as above；<br>
+最短hamilton路径：状态压缩DP基础题,使用状态压缩的思想去表述当前节点选或不选<br>
+最后通过检测第k位是否合法去实现转移方程<br>
+起床困难综合症: 按位贪心，通过二进制中每一位都不影响彼此的思想，使用<br>
+状态压缩去表示初始攻击力。通过贪心，证明从最高位选取的正确性。最后通过检测<br>
+第k位是否选取去计算答案</p>
+<pre><code>//最短hamilton路径
+int n;
+int a[22][22];
+int dp[1&lt;&lt;20][22];
+	int main(){
+	  ios::sync_with_stdio(false); cin.tie(0);
+	  cin&gt;&gt;n;
+	  for(int i=0;i&lt;n;++i)
+	  	for(int j=0;j&lt;n;++j)
+	  	{
+	  		cin&gt;&gt;a[i][j];
+	  	}
+	  memset(dp,0x3f,sizeof dp);
+	  dp[1][0] =0;   // 1 为 000001,代表只经过点0,当前在点0的最短长度为0
+	  for(int i=1;i&lt;(1&lt;&lt;n);++i)
+	  {
+	  	for(int j=0;j&lt;n;++j)
+	  	{
+	  		if((i&gt;&gt;j)&amp;1)  //点j一定是刚刚经过,所以为1
+	  		for(int k=0;k&lt;n;++k)
+	  		{
+	  			if((i&gt;&gt;k)&amp;1)//经过点j是，一定是从某个k为1的点出发
+	  			{
+	  				dp[i][j] = min(dp[i][j],dp[i^(1&lt;&lt;j)][k]+a[j][k]);
+	  			}
+	  		}
+	  	}
+	  }
+	  cout&lt;&lt;dp[(1&lt;&lt;n)-1][n-1];
+</code></pre>
+<p>设f(u,v)代表从起点u出发到终点v的路径与的值，那么<br>
+我们有一个非常经典的结论，就是一条链上，固定起点 u，不同的 f(u,v) 仅有O(w) 种。因为显然假设存在链u,⋯,v1,v2 且 f(u,v_2)!=f(u,v_1),那么，f(u,v_2)一定是 f(u,v_1) 二进制某几位的 1 变成 0。由于一共有 w 位，所以一共有O(w) 种。</p>
+<figure data-type="image" tabindex="1"><img src="https://hiakkaoyri1220.com/post-images/1673364341615.png" alt="图" loading="lazy"></figure>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hiakkaoyri1220.com/post/qian-zhui-he-andchai-fen/">
+              <h3 class="post-title">
+                前缀和&amp;&amp;差分
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://hiakkaoyri1220.com/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

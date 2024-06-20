@@ -1,0 +1,273 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title> p2048 超级钢琴 做题记录 | hiakriggg</title>
+<link rel="shortcut icon" href="https://hiakkaoyri1220.com/favicon.ico?v=1718864303971">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://hiakkaoyri1220.com/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title=" p2048 超级钢琴 做题记录 | hiakriggg - Atom Feed" href="https://hiakkaoyri1220.com/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="参考题解
+首先可以看到，每段超级和弦都是连续的，美妙度是这段区间内所有美妙度的和。可以想到，每次求解区间和显然是不合算的，所以考虑到用前缀和。
+考虑暴力，我们需要把所有满足条件的字段抽出来排个序，但这实在是不可想象。所以考虑使用贪心思想来解..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hiakkaoyri1220.com">
+  <img class="avatar" src="https://hiakkaoyri1220.com/images/avatar.png?v=1718864303971" alt="">
+  </a>
+  <h1 class="site-title">
+    hiakriggg
+  </h1>
+  <p class="site-description">
+    ak+q upupup
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://hiakkaoyri1220.com/post/bayes" class="menu">
+          node
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+               p2048 超级钢琴 做题记录
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-01-21
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p><a href="https://www.luogu.com.cn/problem/solution/P2048">参考题解</a><br>
+首先可以看到，每段超级和弦都是连续的，美妙度是这段区间内所有美妙度的和。可以想到，每次求解区间和显然是不合算的，所以考虑到用前缀和。</p>
+<p>考虑暴力，我们需要把所有满足条件的字段抽出来排个序，但这实在是不可想象。所以考虑使用贪心思想来解决这个问题。</p>
+<p>先想预处理。我们定义 MAX(o,l,r)=max{sum(t)−sum(o−1) ∣ l≤t≤r} ,即以 o 为左端点，右端点范围是 [l, r] 的最大子段。求 sum() 就用前面说的前缀和。可以看出，o 的位置是固定的。所以 sum(o - 1)也是固定的。所以我们要求这个的最大值，只要 sum(t) 最大就可以了。即要求 sum(t)在 [l, r] 中的最大值，那怎么快速地求出这个最大值呢？很显然，这不是 RMQ 的活么。当然，具体计算的时候还要看看上界 rr 是否超过了 n 。</p>
+<p>接下来想怎么贪心。我们可以每次都选最优的子段，这样选 kk 次显然就是我们所要的结果，那怎么找到最优解呢？用堆来将解存进去，每次堆顶的元素就是最优解。</p>
+<p>考虑一个三元组 (o, l, r) 表示以 o 为左端点，右端点的选择区间为 [l, r] 的 情况，我用了一个 struct 来表示这个三元组，但往往实际上每个情况需要额外记录这个情况的最优解 t ，这个不麻烦，在 struct 里面敲一个构造函数就可以了。</p>
+<p>我们假设当前最大的三元组是 (o, l, r)。最优解位置是 t。ans 累加这个三元组的贡献。由于 t 已经被选中，对于这个 o， t 已经不能重复选中，但最优解还可能存在于 t 左右的两端区间中，所以提取出 (o, l, r)之后，为了避免重复且不丧失其他较优解，我们仍然要把 (o,l,t−1) , (o, t + 1, r)扔回堆里面去。显然地，在放回去之前应该保证区间的存在，即 l = t 或 r = t的情况要进行特判。</p>
+<p>最后实现的时候还要注意一点，RMQ 原本数组里面记录的是最优解的值，但我们查询区间最大值的时候查询的是最优解的位置。所以数组里面存的是最优解的位置，要特殊处理。</p>
+<pre><code>for(int i=1;i&lt;=n;++i)
+	  {
+	  	if(i+l1-1&lt;=n)
+	  	{
+	  		pq.push({i,i+l1-1,min(i+r1-1,n),qu(i+l1-1,min(i+r1-1,n))});
+	  	}
+	  }
+</code></pre>
+<h1 id="疑问难点">疑问?难点?</h1>
+<p>首先我们可以将以1<sub>n为开头的长度为l</sub>r的超级和弦中</p>
+<p>分别是最大的n个超级和弦放进队列</p>
+<p>按值从大到小排序</p>
+<p>此时我们取出队列中的队顶,这一定是全局最大的美妙度</p>
+<p>解释: 结构体<code>(i,i+l1-1,min(i+r1-1,n),qu(i+l1-1,min(i+r1-1,n))</code>,代表这以i为左端点,从l到r这一个区间里面,最大的超级和弦(也就是上面所说的前缀和)为qu(i+l1-1,min(i+r1-1,n),<br>
+如果我们重载运算符使得堆的排序方式为  <code>pre[n1.t] - pre[n1.o-1] &lt; pre[n2.t] - pre[n2.o-1]</code>,那么我们就可以得到最优解</p>
+<p>通过此题，我们可以学习到如果对st表进行最值的index的查询，前缀和的优化，贪心思路，和维护k大的值</p>
+<pre><code>#include&lt;bits/stdc++.h&gt;
+#define pb push_back
+#define eb emplace_back
+typedef long long ll;
+using namespace std;
+int n,k,l1,r1;
+ll f[500010][22],pre[500010];
+	struct node{
+		int o,l,r,t;
+		friend bool operator &lt; (const node &amp;n1,const node &amp;n2){
+			return pre[n1.t] - pre[n1.o-1] &lt; pre[n2.t] - pre[n2.o-1];
+		}
+	};
+	int qu(int l,int r)
+	{
+		int k = log(r-l+1)/log(2);
+		int x = f[l][k], y=f[r-(1&lt;&lt;k)+1][k];
+		int index=0;
+		if(pre[x] &gt; pre[y])
+		{
+			index = x;
+		}else
+		{
+			index = y;
+		}
+		return index;
+	}
+	int main(){
+	  ios::sync_with_stdio(false); cin.tie(0);
+	  cin&gt;&gt;n&gt;&gt;k&gt;&gt;l1&gt;&gt;r1;
+	  for(int i=1;i&lt;=n;++i)
+	  	{
+	  		cin&gt;&gt;pre[i];
+	  		pre[i] +=pre[i-1];
+	  	}
+	  	//for(int i=1;i&lt;=n;++i)cout&lt;&lt;pre[i];
+	  for(int i=1;i&lt;=n;++i)f[i][0] = i;
+	  int t = log(n)/log(2)+1;
+	  for(int j=1;j&lt;t;++j){
+	  	for(int i=1;i&lt;=n-(1&lt;&lt;j)+1;++i)
+	  	{
+	  		int x = f[i][j-1],y =f[i+(1&lt;&lt;(j-1))][j-1];
+	  		if(pre[x] &gt; pre[y])
+	  		{
+	  			f[i][j] = x;
+	  		}else
+	  		{
+	  			f[i][j] = y;
+	  		}
+	  	}
+	  }
+	  priority_queue&lt;node&gt;pq;
+	  for(int i=1;i&lt;=n;++i)
+	  {
+	  	if(i+l1-1&lt;=n)
+	  	{
+	  		pq.push({i,i+l1-1,min(i+r1-1,n),qu(i+l1-1,min(i+r1-1,n))});
+	  	}
+	  }
+	  ll res =0;
+	  //cout&lt;&lt;k&lt;&lt;endl;
+	  while(k--)
+	   {
+	   	auto to = pq.top();
+	   	//cout&lt;&lt;to.t;
+	   	pq.pop();
+	  	res+=pre[to.t] - pre[to.o-1];
+	    if(to.l !=to.t) pq.push({to.o,to.l,to.t-1,qu(to.l,to.t-1)});
+	   	if(to.t !=to.r) pq.push({to.o,to.t+1,to.r,qu(to.t+1,to.r)});
+	   }
+	   cout&lt;&lt;res&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E7%96%91%E9%97%AE%E9%9A%BE%E7%82%B9">疑问?难点?</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hiakkaoyri1220.com/post/wei-yun-suan/">
+              <h3 class="post-title">
+                位运算
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://hiakkaoyri1220.com/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
